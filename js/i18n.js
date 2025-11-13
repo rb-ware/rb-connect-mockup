@@ -88,93 +88,7 @@ const translations = {
         'insight.1': 'Robot-A12가 이번 주 0.2% 불량률 달성 - 최고 성과 기록.',
         'insight.2': 'Welder-D08이 높은 불량률(0.8%) 표시 - 파라미터 조정 권장.',
         'insight.3': 'AI가 23개 잠재적 결함을 조기 감지 - 18개 부품 재작업 방지.',
-        'insight.4': '전체 플릿 가동률이 94%로 개선 (목표: 90%) - 3개월 추세.',
-
-        // User Menu
-        'user.profile': '프로필',
-        'user.settings': '설정',
-        'user.notifications': '알림',
-        'user.help': '도움말',
-        'user.logout': '로그아웃',
-
-        // Live Operations Page
-        'ops.title': '실시간 작업 & 알람 센터',
-        'ops.subtitle': '실시간 용접 상태를 모니터링하고 문제를 사전에 예방하세요.',
-        'ops.filter.cell': 'Cell / Line',
-        'ops.filter.timewindow': 'Time Window',
-
-        // Active Cell Summary
-        'ops.cell.title': '활성 셀 – Line 3 · MIG Cell A',
-        'ops.status.robot': 'Robot:',
-        'ops.status.running': '작동 중',
-        'ops.status.welder': 'Welder:',
-        'ops.status.arcon': 'Arc On',
-        'ops.status.safety': 'Safety:',
-        'ops.status.ok': '정상',
-        'ops.job.current': '현재 작업',
-        'ops.job.pass': 'Pass:',
-        'ops.job.time': 'Time:',
-
-        // Live Metrics
-        'ops.metric.current': '전류 (A)',
-        'ops.metric.voltage': '전압 (V)',
-        'ops.metric.wfs': '와이어 공급 속도',
-        'ops.metric.tast': 'TAST',
-        'ops.metric.target': 'Target:',
-        'ops.metric.range': '정상 범위',
-        'ops.metric.outofrange': '범위 초과',
-
-        // Charts
-        'ops.chart.cv': '전류 & 전압 (최근 30초)',
-        'ops.chart.wfstast': '와이어 공급 속도 & TAST (최근 30초)',
-
-        // Alarm Timeline
-        'ops.alarm.title': '알람 & 이벤트 – 최근 10분',
-        'ops.alarm.all': '전체',
-        'ops.alarm.warning': '경고',
-        'ops.alarm.critical': '위험',
-        'ops.alarm.resolved': '해결됨',
-        'ops.alarm.info': '정보',
-        'ops.alarm.pending': '대기 중',
-
-        // Alarm Events
-        'ops.event.voltage.spike': '전압 급상승 감지 (31.8 V)',
-        'ops.event.voltage.action': '자동 조치: 이송 속도 20% 감소',
-        'ops.event.cycle.complete': '프로그램 사이클 완료',
-        'ops.event.cycle.success': 'Job HYUNDAI_DOOR_STEP_11 성공적으로 완료',
-        'ops.event.tast.drift': 'TAST 허용치 초과 (+420)',
-        'ops.event.tast.confirm': '작업자 확인 필요',
-        'ops.event.wfs.normalized': '와이어 공급 속도 정상화',
-        'ops.event.wfs.target': '목표 범위로 복귀 (10.0 m/min)',
-        'ops.event.current.fluctuation': '전류 변동 감지',
-        'ops.event.current.stabilized': '자동 조치: 205 A로 안정화',
-
-        // Running Jobs Table
-        'ops.table.jobs': '활성 & 최근 용접 작업 (최근 10분)',
-        'ops.table.starttime': '시작 시간',
-        'ops.table.jobname': '작업 이름',
-        'ops.table.cell': 'Cell / Line',
-        'ops.table.duration': '소요 시간 (초)',
-        'ops.table.risk': '품질 리스크',
-        'ops.table.status': '상태',
-        'ops.table.risk.low': '낮음',
-        'ops.table.risk.medium': '중간',
-        'ops.table.risk.high': '높음',
-        'ops.table.status.running': '진행 중',
-        'ops.table.status.completed': '완료',
-        'ops.table.status.failed': '실패',
-
-        // Detail Panel
-        'ops.detail.title': '선택된 이벤트 상세',
-        'ops.detail.time': '시간:',
-        'ops.detail.job': '관련 작업:',
-        'ops.detail.cell': 'Cell:',
-        'ops.detail.snapshot': '신호 스냅샷',
-        'ops.detail.system.action': '시스템 조치',
-        'ops.detail.action.speed': '이송 속도를 60 cm/min에서 45 cm/min로 감소',
-        'ops.detail.action.flag': '용접 후 품질 검사 플래그 설정',
-        'ops.detail.operator.action': '작업자 조치',
-        'ops.detail.confirm': '정상으로 확인'
+        'insight.4': '전체 플릿 가동률이 94%로 개선 (목표: 90%) - 3개월 추세.'
     },
 
     en: {
@@ -183,12 +97,7 @@ const translations = {
         'nav.site.line1': 'Line 1',
         'nav.site.line2': 'Line 2',
         'nav.site.line3': 'Line 3',
-        'nav.date.1d': 'Last 1 day',
-        'nav.date.3d': 'Last 3 days',
-        'nav.date.5d': 'Last 5 days',
-        'nav.date.10d': 'Last 10 days',
-        'nav.date.15d': 'Last 15 days',
-        'nav.date.30d': 'Last 30 days',
+        'nav.date': 'Last 30 days',
         'nav.live': 'Live Now',
         'nav.live.label': 'welds today',
 
@@ -263,93 +172,7 @@ const translations = {
         'insight.1': 'Robot-A12 achieved 0.2% defect rate this week - best performance recorded.',
         'insight.2': 'Welder-D08 showing higher defects (0.8%) - recommended parameter adjustment.',
         'insight.3': 'AI detected 23 potential defects early - prevented rework on 18 parts.',
-        'insight.4': 'Overall fleet uptime improved to 94% (target: 90%) - 3 month trend.',
-
-        // User Menu
-        'user.profile': 'Profile',
-        'user.settings': 'Settings',
-        'user.notifications': 'Notifications',
-        'user.help': 'Help',
-        'user.logout': 'Logout',
-
-        // Live Operations Page
-        'ops.title': 'Live Operations & Alarm Center',
-        'ops.subtitle': 'Monitor live welding conditions and prevent issues before they become failures.',
-        'ops.filter.cell': 'Cell / Line',
-        'ops.filter.timewindow': 'Time Window',
-
-        // Active Cell Summary
-        'ops.cell.title': 'Active Cell – Line 3 · MIG Cell A',
-        'ops.status.robot': 'Robot:',
-        'ops.status.running': 'Running',
-        'ops.status.welder': 'Welder:',
-        'ops.status.arcon': 'Arc On',
-        'ops.status.safety': 'Safety:',
-        'ops.status.ok': 'OK',
-        'ops.job.current': 'Current Job',
-        'ops.job.pass': 'Pass:',
-        'ops.job.time': 'Time:',
-
-        // Live Metrics
-        'ops.metric.current': 'Current (A)',
-        'ops.metric.voltage': 'Voltage (V)',
-        'ops.metric.wfs': 'Wire Feed Speed',
-        'ops.metric.tast': 'TAST',
-        'ops.metric.target': 'Target:',
-        'ops.metric.range': 'Within range',
-        'ops.metric.outofrange': 'Out of range',
-
-        // Charts
-        'ops.chart.cv': 'Current & Voltage (Last 30 sec)',
-        'ops.chart.wfstast': 'Wire Feed Speed & TAST (Last 30 sec)',
-
-        // Alarm Timeline
-        'ops.alarm.title': 'Alarms & Events – Last 10 min',
-        'ops.alarm.all': 'All',
-        'ops.alarm.warning': 'Warning',
-        'ops.alarm.critical': 'Critical',
-        'ops.alarm.resolved': 'Resolved',
-        'ops.alarm.info': 'Info',
-        'ops.alarm.pending': 'Pending',
-
-        // Alarm Events
-        'ops.event.voltage.spike': 'Voltage spike detected (31.8 V)',
-        'ops.event.voltage.action': 'Auto action: reduced travel speed by 20%',
-        'ops.event.cycle.complete': 'Program cycle completed',
-        'ops.event.cycle.success': 'Job HYUNDAI_DOOR_STEP_11 finished successfully',
-        'ops.event.tast.drift': 'TAST drift beyond limit (+420)',
-        'ops.event.tast.confirm': 'Operator confirmation required',
-        'ops.event.wfs.normalized': 'Wire feed speed normalized',
-        'ops.event.wfs.target': 'Returned to target range (10.0 m/min)',
-        'ops.event.current.fluctuation': 'Current fluctuation detected',
-        'ops.event.current.stabilized': 'Auto action: stabilized at 205 A',
-
-        // Running Jobs Table
-        'ops.table.jobs': 'Active & Recent Weld Jobs (Last 10 min)',
-        'ops.table.starttime': 'Start Time',
-        'ops.table.jobname': 'Job Name',
-        'ops.table.cell': 'Cell / Line',
-        'ops.table.duration': 'Duration (s)',
-        'ops.table.risk': 'Quality Risk',
-        'ops.table.status': 'Status',
-        'ops.table.risk.low': 'Low',
-        'ops.table.risk.medium': 'Medium',
-        'ops.table.risk.high': 'High',
-        'ops.table.status.running': 'Running',
-        'ops.table.status.completed': 'Completed',
-        'ops.table.status.failed': 'Failed',
-
-        // Detail Panel
-        'ops.detail.title': 'Selected Event Detail',
-        'ops.detail.time': 'Time:',
-        'ops.detail.job': 'Related Job:',
-        'ops.detail.cell': 'Cell:',
-        'ops.detail.snapshot': 'Signal Snapshot',
-        'ops.detail.system.action': 'System Action',
-        'ops.detail.action.speed': 'Reduced travel speed from 60 cm/min to 45 cm/min',
-        'ops.detail.action.flag': 'Flagged weld for post-weld quality check',
-        'ops.detail.operator.action': 'Operator Action',
-        'ops.detail.confirm': 'Confirm as Normal'
+        'insight.4': 'Overall fleet uptime improved to 94% (target: 90%) - 3 month trend.'
     }
 };
 

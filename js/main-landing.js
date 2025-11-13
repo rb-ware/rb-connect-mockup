@@ -1,5 +1,109 @@
 // Main Landing Page JavaScript
 
+// Translation Data
+const translations = {
+    en: {
+        'nav.features': 'Features',
+        'nav.benefits': 'Benefits',
+        'nav.roi': 'ROI Calculator',
+        'nav.testimonials': 'Success Stories',
+        'nav.dashboard': 'View Dashboard',
+        'nav.demo': 'Request Demo',
+        'hero.title.part1': 'Transform Welding',
+        'hero.title.part2': 'From',
+        'hero.title.chaos': 'Chaos',
+        'hero.title.to': 'to',
+        'hero.title.precision': 'Precision',
+        'hero.subtitle': 'Real-time monitoring, AI-powered quality control, and predictive maintenance for modern welding operations. Stop firefighting. Start preventing.'
+    },
+    ko: {
+        'nav.features': '기능',
+        'nav.benefits': '장점',
+        'nav.roi': 'ROI 계산기',
+        'nav.testimonials': '성공 사례',
+        'nav.dashboard': '대시보드 보기',
+        'nav.demo': '데모 요청',
+        'hero.title.part1': '용접을 혁신하세요',
+        'hero.title.part2': '',
+        'hero.title.chaos': '혼란',
+        'hero.title.to': '에서',
+        'hero.title.precision': '정밀',
+        'hero.subtitle': '실시간 모니터링, AI 기반 품질 관리 및 예측 유지보수로 현대적인 용접 작업을 관리하세요. 문제 해결을 멈추고 예방을 시작하세요.'
+    },
+    tr: {
+        'nav.features': 'Özellikler',
+        'nav.benefits': 'Avantajlar',
+        'nav.roi': 'ROI Hesaplayıcı',
+        'nav.testimonials': 'Başarı Hikayeleri',
+        'nav.dashboard': 'Kontrol Paneli',
+        'nav.demo': 'Demo Talep Et',
+        'hero.title.part1': 'Kaynağı Dönüştürün',
+        'hero.title.part2': '',
+        'hero.title.chaos': 'Kaostan',
+        'hero.title.to': '',
+        'hero.title.precision': 'Hassasiyete',
+        'hero.subtitle': 'Modern kaynak operasyonları için gerçek zamanlı izleme, AI destekli kalite kontrol ve öngörülü bakım. Yangınla mücadeleyi bırakın. Önlemeye başlayın.'
+    }
+};
+
+let currentLanguage = 'en';
+
+// Update page content based on selected language
+function updateLanguage(lang) {
+    currentLanguage = lang;
+
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+
+    // Update language selector display
+    const langMap = {
+        'en': 'EN',
+        'ko': 'KO',
+        'tr': 'TR'
+    };
+    document.getElementById('currentLang').textContent = langMap[lang];
+
+    // Store preference
+    localStorage.setItem('selectedLanguage', lang);
+}
+
+// Language Selector Dropdown
+document.addEventListener('DOMContentLoaded', function() {
+    const langSelector = document.getElementById('langSelectorDropdown');
+    const langDropdown = document.getElementById('langDropdown');
+    const langOptions = document.querySelectorAll('.lang-option');
+
+    // Load saved language preference
+    const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+    updateLanguage(savedLang);
+
+    // Toggle dropdown
+    langSelector.addEventListener('click', function(e) {
+        e.stopPropagation();
+        langSelector.classList.toggle('open');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function() {
+        langSelector.classList.remove('open');
+    });
+
+    // Language option selection
+    langOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const selectedLang = this.getAttribute('data-lang');
+            updateLanguage(selectedLang);
+            langSelector.classList.remove('open');
+        });
+    });
+});
+
 // ROI Calculator
 function calculateROI() {
     // Get input values
