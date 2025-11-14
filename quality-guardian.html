@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Weld Quality Guardian - Weld Insight</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quality-guardian.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="main.html" class="logo" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                <img src="assets/icons/rbw_logo.png" alt="RB-WARE" class="logo-image">
+                <span>Weld Insight</span>
+            </a>
+        </div>
+        <div class="nav-center">
+            <div class="site-selector" id="siteSelectorDropdown">
+                <span class="site-selector-text" id="selectedSite">조선소 전체</span>
+                <span class="site-selector-icon">▼</span>
+                <div class="site-dropdown" id="siteDropdown">
+                    <div class="site-option" data-value="all">조선소 전체</div>
+                    <div class="site-option" data-value="line1">1라인</div>
+                    <div class="site-option" data-value="line2">2라인</div>
+                    <div class="site-option" data-value="line3">3라인</div>
+                </div>
+            </div>
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                <span class="live-text">Live Now</span>
+                <span class="live-count" id="liveCount">12,243</span>
+                <span class="live-label">welds today</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="lang-selector">
+                <button class="lang-option active" data-lang="en">EN</button>
+                <button class="lang-option" data-lang="ko">한글</button>
+            </div>
+            <div class="date-picker" id="datePickerDropdown">
+                <span>📅</span>
+                <span class="date-picker-text" id="selectedDate">최근 30일</span>
+                <span class="date-picker-icon">▼</span>
+                <div class="date-dropdown" id="dateDropdown">
+                    <div class="date-option" data-value="1d">최근 1일</div>
+                    <div class="date-option" data-value="3d">최근 3일</div>
+                    <div class="date-option" data-value="5d">최근 5일</div>
+                    <div class="date-option" data-value="10d">최근 10일</div>
+                    <div class="date-option" data-value="15d">최근 15일</div>
+                    <div class="date-option" data-value="30d">최근 30일</div>
+                </div>
+            </div>
+            <div class="user-profile" id="userProfileDropdown">
+                <div class="user-avatar">
+                    <img src="assets/icons/worker.png" alt="User" class="user-avatar-img">
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-dropdown-header">
+                        <img src="assets/icons/worker.png" alt="User" class="user-dropdown-avatar">
+                        <div class="user-dropdown-info">
+                            <div class="user-dropdown-name">Can Berk Sansoy</div>
+                            <div class="user-dropdown-email">admin@rbware.com</div>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-dropdown-menu">
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">👤</span>
+                            <span>프로필</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">⚙️</span>
+                            <span>설정</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">🔔</span>
+                            <span>알림</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">❓</span>
+                            <span>도움말</span>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-menu-item logout">
+                        <span class="user-menu-icon">🚪</span>
+                        <span>로그아웃</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="dashboard.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="live-operations.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">⚡</span>
+                    <span>Live Operations</span>
+                </a>
+            </li>
+            <li class="menu-item active">
+                <a href="quality-guardian.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">🛡️</span>
+                    <span>Quality Guardian</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="recipes-playbook.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">📋</span>
+                    <span>Recipes & Playbook</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">💰</span>
+                <span>ROI Simulator</span>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">🤖</span>
+                <span>Fleet View</span>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">🧠</span>
+                <span>Data & AI Engine</span>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <header class="page-header">
+            <div class="page-header-left">
+                <h1 class="page-title">Post-Weld Quality Guardian</h1>
+                <p class="page-subtitle">Automatically scored welds with segment-level risk so inspectors can focus only on critical parts.</p>
+            </div>
+            <div class="page-header-right">
+                <div class="header-control">
+                    <label>Weld # / Job</label>
+                    <select class="control-select" id="weldSelect">
+                        <option value="weld-347" selected>WLD-2025-00347 - HYUNDAI_DOOR_INNER_STEP_12</option>
+                        <option value="weld-346">WLD-2025-00346 - KIA_FRAME_ASSY_05</option>
+                        <option value="weld-345">WLD-2025-00345 - PRECISION_TUBE_WELD_A8</option>
+                    </select>
+                </div>
+                <div class="header-control">
+                    <label>Pass</label>
+                    <select class="control-select" id="passSelect">
+                        <option value="pass1" selected>Pass 1</option>
+                        <option value="pass2">Pass 2</option>
+                    </select>
+                </div>
+                <div class="header-timestamp">
+                    <span class="timestamp-icon">🕐</span>
+                    <span class="timestamp-text">2025-11-13 · 10:21:00</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Top Row: Context + Quality Score -->
+        <section class="grid-12 mb-xl">
+            <!-- Weld Context Card -->
+            <div class="col-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Weld Context</h2>
+                    </div>
+                    <div class="context-grid">
+                        <div class="context-item">
+                            <span class="context-label">Line / Cell</span>
+                            <span class="context-value">Hyundai Plant A · Line 3 · MIG Cell A</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-label">Part</span>
+                            <span class="context-value">Door Inner Panel</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-label">Process</span>
+                            <span class="context-value">Fillet · PB</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-label">Material</span>
+                            <span class="context-value">SM490A (12mm)</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-label">Length</span>
+                            <span class="context-value">1,200 mm <span class="context-secondary">(11.2 s)</span></span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-label">Wire / Gas</span>
+                            <span class="context-value">ER70S-6 (1.2mm) / Ar 98%</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-label">Operator</span>
+                            <span class="context-value">Robot Program</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-label">Recipe</span>
+                            <span class="context-value highlight-recipe">HY_DOOR_FILLET_V3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quality Score Card -->
+            <div class="col-5">
+                <div class="card quality-score-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Overall Quality Score</h2>
+                    </div>
+                    <div class="score-display">
+                        <div class="score-circle grade-a">
+                            <div class="score-number">92.3</div>
+                            <div class="score-max">/100</div>
+                        </div>
+                        <div class="score-details">
+                            <div class="score-grade">
+                                <span class="grade-label">Grade</span>
+                                <span class="grade-value grade-a-text">A</span>
+                            </div>
+                            <div class="score-status">
+                                <span class="status-badge pass">✓ PASS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="score-breakdown">
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Signal Stability</span>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill" style="width: 95%"></div>
+                            </div>
+                            <span class="breakdown-score">95/100</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Parameter Compliance</span>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill" style="width: 88%"></div>
+                            </div>
+                            <span class="breakdown-score">88/100</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">AI Defect Risk</span>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill" style="width: 94%"></div>
+                            </div>
+                            <span class="breakdown-score">94/100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Middle Row: Bead Heatmap + Signal Graphs -->
+        <section class="grid-12 mb-xl">
+            <!-- Bead Heatmap -->
+            <div class="col-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Weld Quality Heatmap (1,200 mm)</h2>
+                        <div class="heatmap-legend">
+                            <div class="legend-item">
+                                <span class="legend-color excellent"></span>
+                                <span>Excellent (95-100)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color good"></span>
+                                <span>Good (85-94)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color caution"></span>
+                                <span>Caution (70-84)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color defect"></span>
+                                <span>Defect (&lt;70)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="heatmap-container">
+                        <!-- Weld Bead Visual Reference -->
+                        <div class="weld-bead-visual">
+                            <img src="assets/icons/welding3.jpeg" alt="Weld Bead" class="weld-bead-image">
+                            <div class="visual-overlay">
+                                <div class="overlay-marker" style="left: 12.5%" data-segment="1">
+                                    <span class="marker-icon">⚠️</span>
+                                    <span class="marker-label">Defect</span>
+                                </div>
+                                <div class="overlay-marker warning" style="left: 69%" data-segment="4">
+                                    <span class="marker-icon">!</span>
+                                    <span class="marker-label">Caution</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="heatmap-ruler">
+                            <span>0mm</span>
+                            <span>300mm</span>
+                            <span>600mm</span>
+                            <span>900mm</span>
+                            <span>1200mm</span>
+                        </div>
+                        <div class="heatmap-bar" id="heatmapBar">
+                            <!-- Segments will be dynamically generated -->
+                            <div class="heatmap-segment good" style="width: 5%" data-start="0" data-end="60" data-score="88"></div>
+                            <div class="heatmap-segment defect" style="width: 15%" data-start="60" data-end="240" data-score="58" data-image="1"></div>
+                            <div class="heatmap-segment excellent" style="width: 50%" data-start="240" data-end="840" data-score="96"></div>
+                            <div class="heatmap-segment good" style="width: 20%" data-start="840" data-end="1080" data-score="91"></div>
+                            <div class="heatmap-segment caution" style="width: 10%" data-start="1080" data-end="1200" data-score="74" data-image="2"></div>
+                        </div>
+                        <div class="heatmap-hover-info" id="heatmapHover">
+                            <div class="hover-position">Position: <strong>0mm - 0mm</strong></div>
+                            <div class="hover-score">Score: <strong>0</strong></div>
+                            <div class="hover-status">Status: <strong>-</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Segment Detail Modal (Hidden by default) -->
+                    <div class="segment-detail-modal" id="segmentModal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="modalTitle">Segment Detail</h3>
+                                <button class="modal-close" onclick="closeSegmentModal()">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="" alt="Segment close-up" id="modalImage" class="modal-weld-image">
+                                <div class="modal-info" id="modalInfo">
+                                    <div class="modal-info-item">
+                                        <span class="info-label">Position:</span>
+                                        <span class="info-value" id="modalPosition">-</span>
+                                    </div>
+                                    <div class="modal-info-item">
+                                        <span class="info-label">Quality Score:</span>
+                                        <span class="info-value" id="modalScore">-</span>
+                                    </div>
+                                    <div class="modal-info-item">
+                                        <span class="info-label">Issue Type:</span>
+                                        <span class="info-value" id="modalIssue">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signal Graphs -->
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Welding Signals</h2>
+                        <div class="signal-tabs">
+                            <button class="signal-tab active" data-signal="current">Current</button>
+                            <button class="signal-tab" data-signal="voltage">Voltage</button>
+                            <button class="signal-tab" data-signal="wfs">WFS</button>
+                            <button class="signal-tab" data-signal="tast">TAST</button>
+                        </div>
+                    </div>
+                    <div class="signal-chart-container">
+                        <canvas id="signalChart"></canvas>
+                    </div>
+                    <div class="signal-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Target</span>
+                            <span class="stat-value" id="targetValue">210 ± 10 A</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Actual Avg</span>
+                            <span class="stat-value" id="avgValue">208.5 A</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Deviation</span>
+                            <span class="stat-value success" id="deviationValue">-0.7%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Row: Defect List + Actions -->
+        <section class="grid-12">
+            <!-- Defect/Caution Segments Table -->
+            <div class="col-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Detected Risk Segments</h2>
+                        <span class="risk-count">2 segments require attention</span>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Segment</th>
+                                <th>Position (mm)</th>
+                                <th>Length</th>
+                                <th>Score</th>
+                                <th>Risk Level</th>
+                                <th>Primary Issue</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="risk-row defect">
+                                <td><strong>#1</strong></td>
+                                <td>60 - 240</td>
+                                <td>180 mm</td>
+                                <td class="score-cell defect">58</td>
+                                <td><span class="badge danger">High Risk</span></td>
+                                <td>Poor penetration, porosity detected</td>
+                                <td>
+                                    <button class="btn-action-sm btn-inspect">Inspect</button>
+                                </td>
+                            </tr>
+                            <tr class="risk-row caution">
+                                <td><strong>#4</strong></td>
+                                <td>1080 - 1200</td>
+                                <td>120 mm</td>
+                                <td class="score-cell caution">74</td>
+                                <td><span class="badge warning">Medium Risk</span></td>
+                                <td>Bead width variation</td>
+                                <td>
+                                    <button class="btn-action-sm btn-review">Review</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recommended Actions & Log -->
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recommended Actions</h2>
+                    </div>
+                    <div class="actions-panel">
+                        <div class="action-recommendation high-priority">
+                            <div class="action-header">
+                                <span class="action-icon">⚠️</span>
+                                <span class="action-title">High Priority</span>
+                            </div>
+                            <div class="action-content">
+                                <p><strong>Segment #1 (60-240mm)</strong></p>
+                                <p>Critical defect detected. Poor penetration and porosity found in start section. Re-weld recommended.</p>
+                                <div class="action-confidence">
+                                    <span class="confidence-label">AI Confidence:</span>
+                                    <span class="confidence-value">96.8%</span>
+                                </div>
+                            </div>
+                            <button class="btn-action-full">Create Re-weld Task</button>
+                        </div>
+
+                        <div class="action-recommendation medium-priority">
+                            <div class="action-header">
+                                <span class="action-icon">ℹ️</span>
+                                <span class="action-title">Medium Priority</span>
+                            </div>
+                            <div class="action-content">
+                                <p><strong>Segment #4 (1080-1200mm)</strong></p>
+                                <p>Visual inspection recommended. Bead width variation detected at end section.</p>
+                                <div class="action-confidence">
+                                    <span class="confidence-label">AI Confidence:</span>
+                                    <span class="confidence-value">82.3%</span>
+                                </div>
+                            </div>
+                            <button class="btn-action-full btn-secondary">Schedule Review</button>
+                        </div>
+
+                        <div class="action-log">
+                            <div class="log-header">Action Log</div>
+                            <div class="log-item">
+                                <span class="log-time">10:21:05</span>
+                                <span class="log-text">Quality score calculated: 92.3/100</span>
+                            </div>
+                            <div class="log-item">
+                                <span class="log-time">10:21:07</span>
+                                <span class="log-text">2 risk segments identified</span>
+                            </div>
+                            <div class="log-item">
+                                <span class="log-time">10:21:09</span>
+                                <span class="log-text">AI analysis complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/quality-guardian.js"></script>
+</body>
+</html>

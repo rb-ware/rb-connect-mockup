@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weld Insight - Live Operations</title>
+    <title>Live Operations & Alarm Center - Weld Insight</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/live-operations.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,20 +22,20 @@
         </div>
         <div class="nav-center">
             <div class="site-selector" id="siteSelectorDropdown">
-                <span class="site-selector-text" id="selectedSite" data-i18n="nav.site.all">조선소 전체</span>
+                <span class="site-selector-text" id="selectedSite">조선소 전체</span>
                 <span class="site-selector-icon">▼</span>
                 <div class="site-dropdown" id="siteDropdown">
-                    <div class="site-option" data-value="all" data-i18n="nav.site.all">조선소 전체</div>
-                    <div class="site-option" data-value="line1" data-i18n="nav.site.line1">1라인</div>
-                    <div class="site-option" data-value="line2" data-i18n="nav.site.line2">2라인</div>
-                    <div class="site-option" data-value="line3" data-i18n="nav.site.line3">3라인</div>
+                    <div class="site-option" data-value="all">조선소 전체</div>
+                    <div class="site-option" data-value="line1">1라인</div>
+                    <div class="site-option" data-value="line2">2라인</div>
+                    <div class="site-option" data-value="line3">3라인</div>
                 </div>
             </div>
             <div class="live-indicator">
                 <span class="live-dot"></span>
-                <span class="live-text" data-i18n="nav.live">Live Now</span>
+                <span class="live-text">Live Now</span>
                 <span class="live-count" id="liveCount">12,243</span>
-                <span class="live-label" data-i18n="nav.live.label">welds today</span>
+                <span class="live-label">welds today</span>
             </div>
         </div>
         <div class="nav-right">
@@ -45,15 +45,15 @@
             </div>
             <div class="date-picker" id="datePickerDropdown">
                 <span>📅</span>
-                <span class="date-picker-text" id="selectedDate" data-i18n="nav.date.30d">최근 30일</span>
+                <span class="date-picker-text" id="selectedDate">최근 30일</span>
                 <span class="date-picker-icon">▼</span>
                 <div class="date-dropdown" id="dateDropdown">
-                    <div class="date-option" data-value="1d" data-i18n="nav.date.1d">최근 1일</div>
-                    <div class="date-option" data-value="3d" data-i18n="nav.date.3d">최근 3일</div>
-                    <div class="date-option" data-value="5d" data-i18n="nav.date.5d">최근 5일</div>
-                    <div class="date-option" data-value="10d" data-i18n="nav.date.10d">최근 10일</div>
-                    <div class="date-option" data-value="15d" data-i18n="nav.date.15d">최근 15일</div>
-                    <div class="date-option" data-value="30d" data-i18n="nav.date.30d">최근 30일</div>
+                    <div class="date-option" data-value="1d">최근 1일</div>
+                    <div class="date-option" data-value="3d">최근 3일</div>
+                    <div class="date-option" data-value="5d">최근 5일</div>
+                    <div class="date-option" data-value="10d">최근 10일</div>
+                    <div class="date-option" data-value="15d">최근 15일</div>
+                    <div class="date-option" data-value="30d">최근 30일</div>
                 </div>
             </div>
             <div class="user-profile" id="userProfileDropdown">
@@ -72,25 +72,25 @@
                     <div class="user-dropdown-menu">
                         <div class="user-menu-item">
                             <span class="user-menu-icon">👤</span>
-                            <span data-i18n="user.profile">프로필</span>
+                            <span>프로필</span>
                         </div>
                         <div class="user-menu-item">
                             <span class="user-menu-icon">⚙️</span>
-                            <span data-i18n="user.settings">설정</span>
+                            <span>설정</span>
                         </div>
                         <div class="user-menu-item">
                             <span class="user-menu-icon">🔔</span>
-                            <span data-i18n="user.notifications">알림</span>
+                            <span>알림</span>
                         </div>
                         <div class="user-menu-item">
                             <span class="user-menu-icon">❓</span>
-                            <span data-i18n="user.help">도움말</span>
+                            <span>도움말</span>
                         </div>
                     </div>
                     <div class="user-dropdown-divider"></div>
                     <div class="user-menu-item logout">
                         <span class="user-menu-icon">🚪</span>
-                        <span data-i18n="user.logout">로그아웃</span>
+                        <span>로그아웃</span>
                     </div>
                 </div>
             </div>
@@ -101,62 +101,66 @@
     <aside class="sidebar">
         <ul class="sidebar-menu">
             <li class="menu-item">
-                <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                <a href="dashboard.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
                     <span class="menu-icon">📊</span>
-                    <span data-i18n="menu.dashboard">Dashboard</span>
+                    <span>Dashboard</span>
                 </a>
             </li>
             <li class="menu-item active">
                 <a href="live-operations.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
                     <span class="menu-icon">⚡</span>
-                    <span data-i18n="menu.operations">Live Operations</span>
+                    <span>Live Operations</span>
                 </a>
             </li>
             <li class="menu-item">
-                <span class="menu-icon">🛡️</span>
-                <span data-i18n="menu.quality">Quality Guardian</span>
+                <a href="quality-guardian.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">🛡️</span>
+                    <span>Quality Guardian</span>
+                </a>
             </li>
             <li class="menu-item">
-                <span class="menu-icon">📋</span>
-                <span data-i18n="menu.recipes">Recipes & Playbook</span>
+                <a href="recipes-playbook.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">📋</span>
+                    <span>Recipes & Playbook</span>
+                </a>
             </li>
             <li class="menu-item">
                 <span class="menu-icon">💰</span>
-                <span data-i18n="menu.roi">ROI Simulator</span>
+                <span>ROI Simulator</span>
             </li>
             <li class="menu-item">
                 <span class="menu-icon">🤖</span>
-                <span data-i18n="menu.fleet">Fleet View</span>
+                <span>Fleet View</span>
             </li>
             <li class="menu-item">
                 <span class="menu-icon">🧠</span>
-                <span data-i18n="menu.ai">Data & AI Engine</span>
+                <span>Data & AI Engine</span>
             </li>
         </ul>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Page Header with Filters -->
-        <header class="ops-page-header">
-            <div class="ops-header-left">
-                <h1 class="ops-page-title" data-i18n="ops.title">Live Operations & Alarm Center</h1>
-                <p class="ops-page-subtitle" data-i18n="ops.subtitle">Monitor live welding conditions and prevent issues before they become failures.</p>
+        <!-- Page Header -->
+        <header class="page-header">
+            <div class="page-header-left">
+                <h1 class="page-title">Live Operations & Alarm Center</h1>
+                <p class="page-subtitle">Monitor live welding conditions and prevent issues before they become failures.</p>
             </div>
-            <div class="ops-header-right">
-                <div class="ops-filter">
+            <div class="page-header-right">
+                <div class="header-control">
                     <label>Cell / Line</label>
-                    <select class="ops-select" id="cellSelect">
-                        <option value="line3-a">Line 3 – MIG Cell A</option>
-                        <option value="line3-b">Line 3 – MIG Cell B</option>
-                        <option value="line2-a">Line 2 – TIG Cell A</option>
-                        <option value="line1-a">Line 1 – Spot Weld</option>
+                    <select class="control-select" id="cellSelect">
+                        <option value="line3-mig-a" selected>Line 3 – MIG Cell A</option>
+                        <option value="line3-mig-b">Line 3 – MIG Cell B</option>
+                        <option value="line2-tig-a">Line 2 – TIG Cell A</option>
+                        <option value="line1-spot">Line 1 – Spot Welding</option>
                     </select>
                 </div>
-                <div class="ops-filter">
+                <div class="header-control">
                     <label>Time Window</label>
-                    <select class="ops-select" id="timeWindowSelect">
-                        <option value="live">Live</option>
+                    <select class="control-select" id="timeSelect">
+                        <option value="live" selected>Live</option>
                         <option value="5min">Last 5 min</option>
                         <option value="30min">Last 30 min</option>
                     </select>
@@ -164,360 +168,405 @@
             </div>
         </header>
 
-        <!-- Top Row: Active Cell + Live Metrics -->
-        <div class="ops-row">
-            <!-- Left: Active Cell Summary -->
-            <div class="ops-col-6">
-                <div class="ops-card">
-                    <div class="ops-card-header">
-                        <h2 class="ops-card-title" data-i18n="ops.cell.title">Active Cell – Line 3 · MIG Cell A</h2>
+        <!-- Top Row: Active Cell Summary + Live Metrics -->
+        <section class="grid-12 mb-xl">
+            <!-- Active Cell Summary -->
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Active Cell – Line 3 · MIG Cell A</h2>
                     </div>
-                    <div class="ops-cell-status">
-                        <div class="ops-status-item">
-                            <span class="ops-status-icon"></span>
-                            <span class="ops-status-label" data-i18n="ops.status.robot">Robot:</span>
-                            <span class="ops-status-value status-running">
-                                <span class="status-dot green"></span>
-                                <span data-i18n="ops.status.running">Running</span>
-                            </span>
+                    <div class="cell-status-grid">
+                        <div class="status-item">
+                            <span class="status-icon">🤖</span>
+                            <div class="status-content">
+                                <span class="status-label">Robot</span>
+                                <span class="status-value">
+                                    Running
+                                    <span class="status-dot running"></span>
+                                </span>
+                            </div>
                         </div>
-                        <div class="ops-status-item">
-                            <span class="ops-status-icon">⚡</span>
-                            <span class="ops-status-label" data-i18n="ops.status.welder">Welder:</span>
-                            <span class="ops-status-value status-arc-on">
-                                <span class="status-dot orange"></span>
-                                <span data-i18n="ops.status.arcon">Arc On</span>
-                            </span>
+                        <div class="status-item">
+                            <span class="status-icon">🔥</span>
+                            <div class="status-content">
+                                <span class="status-label">Welder</span>
+                                <span class="status-value">
+                                    Arc On
+                                    <span class="status-dot arc-on"></span>
+                                </span>
+                            </div>
                         </div>
-                        <div class="ops-status-item">
-                            <span class="ops-status-icon">🛡️</span>
-                            <span class="ops-status-label" data-i18n="ops.status.safety">Safety:</span>
-                            <span class="ops-status-value status-ok">
-                                <span class="status-dot green"></span>
-                                <span data-i18n="ops.status.ok">OK</span>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="ops-job-info">
-                        <div class="ops-job-header">
-                            <h3 data-i18n="ops.job.current">Current Job</h3>
-                        </div>
-                        <div class="ops-job-detail">
-                            <div class="ops-job-name">HYUNDAI_DOOR_INNER_STEP_12</div>
-                            <div class="ops-job-meta">
-                                <span>Pass: <strong>1 / 2</strong></span>
-                                <span>Time: <strong>7.4s</strong> / 11.2s</span>
+                        <div class="status-item">
+                            <span class="status-icon">🛡️</span>
+                            <div class="status-content">
+                                <span class="status-label">Safety</span>
+                                <span class="status-value">
+                                    OK
+                                    <span class="status-dot ok"></span>
+                                </span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="ops-instant-values">
-                        <div class="ops-instant-item">
-                            <span class="ops-instant-label">Current:</span>
-                            <span class="ops-instant-value">210 A</span>
+                    <div class="job-info">
+                        <div class="job-info-header">Current Job</div>
+                        <div class="job-name">HYUNDAI_DOOR_INNER_STEP_12</div>
+                        <div class="job-details">
+                            <div class="job-detail">
+                                <span class="detail-label">Pass:</span>
+                                <span class="detail-value">1 / 2</span>
+                            </div>
+                            <div class="job-detail">
+                                <span class="detail-label">Progress:</span>
+                                <span class="detail-value">07.4 s / 11.2 s</span>
+                            </div>
                         </div>
-                        <div class="ops-instant-item">
-                            <span class="ops-instant-label">Voltage:</span>
-                            <span class="ops-instant-value">24.5 V</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 66%"></div>
                         </div>
-                        <div class="ops-instant-item">
-                            <span class="ops-instant-label">WFS:</span>
-                            <span class="ops-instant-value">9.8 m/min</span>
+                    </div>
+
+                    <div class="instant-values">
+                        <div class="instant-value-item">
+                            <span class="instant-icon">⚡</span>
+                            <div class="instant-content">
+                                <span class="instant-label">Current</span>
+                                <span class="instant-number">210 A</span>
+                            </div>
                         </div>
-                        <div class="ops-instant-item">
-                            <span class="ops-instant-label">TAST:</span>
-                            <span class="ops-instant-value">+35</span>
+                        <div class="instant-value-item">
+                            <span class="instant-icon">🔋</span>
+                            <div class="instant-content">
+                                <span class="instant-label">Voltage</span>
+                                <span class="instant-number">24.5 V</span>
+                            </div>
+                        </div>
+                        <div class="instant-value-item">
+                            <span class="instant-icon">📏</span>
+                            <div class="instant-content">
+                                <span class="instant-label">WFS</span>
+                                <span class="instant-number">9.8 m/min</span>
+                            </div>
+                        </div>
+                        <div class="instant-value-item">
+                            <span class="instant-icon">📐</span>
+                            <div class="instant-content">
+                                <span class="instant-label">TAST</span>
+                                <span class="instant-number">+35 (-0.13mm)</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Right: Live Metrics Tiles -->
-            <div class="ops-col-6">
-                <div class="ops-metrics-grid">
+            <!-- Live Metrics Tiles -->
+            <div class="col-6">
+                <div class="metrics-grid">
                     <!-- Current Tile -->
-                    <div class="ops-metric-card metric-current">
+                    <div class="metric-tile">
                         <div class="metric-header">
-                            <span class="metric-label" data-i18n="ops.metric.current">Current (A)</span>
+                            <span class="metric-label">Current (A)</span>
                         </div>
-                        <div class="metric-value" id="metricCurrent">210</div>
-                        <div class="metric-sparkline" id="sparklineCurrent"></div>
-                        <div class="metric-status">
-                            <span class="metric-target"><span data-i18n="ops.metric.target">Target:</span> 200 ± 10 A</span>
-                            <span class="metric-badge badge-success" data-i18n="ops.metric.range">Within range</span>
+                        <div class="metric-value current-color">210</div>
+                        <div class="metric-sparkline" id="currentSparkline"></div>
+                        <div class="metric-range">
+                            <span class="range-label">Target: 200 ± 10 A</span>
+                            <span class="range-badge in-range">Within range</span>
+                        </div>
+                        <div class="range-indicator">
+                            <div class="range-bar">
+                                <div class="range-target"></div>
+                                <div class="range-dot" style="left: 50%"></div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Voltage Tile -->
-                    <div class="ops-metric-card metric-voltage">
+                    <div class="metric-tile">
                         <div class="metric-header">
-                            <span class="metric-label" data-i18n="ops.metric.voltage">Voltage (V)</span>
+                            <span class="metric-label">Voltage (V)</span>
                         </div>
-                        <div class="metric-value" id="metricVoltage">24.5</div>
-                        <div class="metric-sparkline" id="sparklineVoltage"></div>
-                        <div class="metric-status">
-                            <span class="metric-target"><span data-i18n="ops.metric.target">Target:</span> 24 ± 2 V</span>
-                            <span class="metric-badge badge-success" data-i18n="ops.metric.range">Within range</span>
+                        <div class="metric-value voltage-color">24.5</div>
+                        <div class="metric-sparkline" id="voltageSparkline"></div>
+                        <div class="metric-range">
+                            <span class="range-label">Target: 24 ± 2 V</span>
+                            <span class="range-badge in-range">Within range</span>
+                        </div>
+                        <div class="range-indicator">
+                            <div class="range-bar">
+                                <div class="range-target"></div>
+                                <div class="range-dot" style="left: 25%"></div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- WFS Tile -->
-                    <div class="ops-metric-card metric-wfs">
+                    <div class="metric-tile">
                         <div class="metric-header">
-                            <span class="metric-label" data-i18n="ops.metric.wfs">Wire Feed Speed</span>
+                            <span class="metric-label">Wire Feed Speed (m/min)</span>
                         </div>
-                        <div class="metric-value" id="metricWFS">9.8<span class="metric-unit">m/min</span></div>
-                        <div class="metric-sparkline" id="sparklineWFS"></div>
-                        <div class="metric-status">
-                            <span class="metric-target"><span data-i18n="ops.metric.target">Target:</span> 10 ± 1 m/min</span>
-                            <span class="metric-badge badge-success" data-i18n="ops.metric.range">Within range</span>
+                        <div class="metric-value wfs-color">9.8</div>
+                        <div class="metric-sparkline" id="wfsSparkline"></div>
+                        <div class="metric-range">
+                            <span class="range-label">Target: 10 ± 1 m/min</span>
+                            <span class="range-badge in-range">Within range</span>
+                        </div>
+                        <div class="range-indicator">
+                            <div class="range-bar">
+                                <div class="range-target"></div>
+                                <div class="range-dot" style="left: 40%"></div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- TAST Tile -->
-                    <div class="ops-metric-card metric-tast">
+                    <div class="metric-tile">
                         <div class="metric-header">
-                            <span class="metric-label" data-i18n="ops.metric.tast">TAST</span>
+                            <span class="metric-label">TAST</span>
                         </div>
-                        <div class="metric-value" id="metricTAST">+125</div>
-                        <div class="metric-sparkline" id="sparklineTAST"></div>
-                        <div class="metric-status">
-                            <span class="metric-target">Range: ±100</span>
-                            <span class="metric-badge badge-warning" data-i18n="ops.metric.outofrange">Out of range</span>
+                        <div class="metric-value tast-color">+35</div>
+                        <div class="metric-sparkline" id="tastSparkline"></div>
+                        <div class="metric-range">
+                            <span class="range-label">-0.13 mm offset</span>
+                            <span class="range-badge in-range">Normal</span>
+                        </div>
+                        <div class="range-indicator">
+                            <div class="range-bar">
+                                <div class="range-target"></div>
+                                <div class="range-dot" style="left: 55%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Middle Row: Live Signal Graphs + Alarm Timeline -->
-        <div class="ops-row">
-            <!-- Left: Live Signal Graphs -->
-            <div class="ops-col-7">
-                <div class="ops-card ops-graph-card">
-                    <div class="ops-card-header">
-                        <h2 class="ops-card-title" data-i18n="ops.chart.cv">Current & Voltage (Last 30 sec)</h2>
+        <section class="grid-12 mb-xl">
+            <!-- Live Signal Graphs -->
+            <div class="col-8">
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Current & Voltage (Last 30 sec)</h2>
                     </div>
-                    <div class="ops-chart-container" id="chartCurrentVoltage">
-                        <!-- Chart will be rendered here -->
+                    <div class="chart-container">
+                        <canvas id="currentVoltageChart"></canvas>
                     </div>
                 </div>
 
-                <div class="ops-card ops-graph-card" style="margin-top: 16px;">
-                    <div class="ops-card-header">
-                        <h2 class="ops-card-title" data-i18n="ops.chart.wfstast">Wire Feed Speed & TAST (Last 30 sec)</h2>
+                <div class="card chart-card mt-lg">
+                    <div class="card-header">
+                        <h2 class="card-title">Wire Feed Speed & TAST (Last 30 sec)</h2>
                     </div>
-                    <div class="ops-chart-container" id="chartWFSTAST">
-                        <!-- Chart will be rendered here -->
+                    <div class="chart-container">
+                        <canvas id="wfsTastChart"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- Right: Alarm Timeline -->
-            <div class="ops-col-5">
-                <div class="ops-card">
-                    <div class="ops-card-header">
-                        <h2 class="ops-card-title" data-i18n="ops.alarm.title">Alarms & Events – Last 10 min</h2>
-                        <div class="ops-alarm-filters">
-                            <button class="alarm-filter-btn active" data-filter="all" data-i18n="ops.alarm.all">All</button>
-                            <button class="alarm-filter-btn" data-filter="warning" data-i18n="ops.alarm.warning">Warning</button>
-                            <button class="alarm-filter-btn" data-filter="critical" data-i18n="ops.alarm.critical">Critical</button>
-                        </div>
+            <!-- Alarm Timeline -->
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Alarm Timeline</h2>
+                        <span class="alarm-count">3 Active</span>
                     </div>
-                    <div class="ops-alarm-timeline">
-                        <div class="alarm-item alarm-warning">
-                            <div class="alarm-time">10:21:34</div>
+                    <div class="alarm-timeline">
+                        <div class="alarm-item critical">
+                            <div class="alarm-time">13:42:18</div>
                             <div class="alarm-content">
-                                <div class="alarm-icon">⚡</div>
-                                <div class="alarm-details">
-                                    <div class="alarm-title" data-i18n="ops.event.voltage.spike">Voltage spike detected (31.8 V)</div>
-                                    <div class="alarm-action" data-i18n="ops.event.voltage.action">Auto action: reduced travel speed by 20%</div>
-                                </div>
+                                <div class="alarm-title">Current Spike Detected</div>
+                                <div class="alarm-description">Current exceeded 220A (limit: 210A)</div>
+                                <div class="alarm-badge badge-critical">Critical</div>
                             </div>
-                            <div class="alarm-badge badge-resolved" data-i18n="ops.alarm.resolved">Resolved</div>
                         </div>
 
-                        <div class="alarm-item alarm-info">
-                            <div class="alarm-time">10:20:15</div>
+                        <div class="alarm-item warning">
+                            <div class="alarm-time">13:41:55</div>
                             <div class="alarm-content">
-                                <div class="alarm-icon">🤖</div>
-                                <div class="alarm-details">
-                                    <div class="alarm-title" data-i18n="ops.event.cycle.complete">Program cycle completed</div>
-                                    <div class="alarm-action" data-i18n="ops.event.cycle.success">Job HYUNDAI_DOOR_STEP_11 finished successfully</div>
-                                </div>
+                                <div class="alarm-title">TAST Rapid Change</div>
+                                <div class="alarm-description">TAST changed ±180 in 2 seconds</div>
+                                <div class="alarm-badge badge-warning">Warning</div>
                             </div>
-                            <div class="alarm-badge badge-info" data-i18n="ops.alarm.info">Info</div>
                         </div>
 
-                        <div class="alarm-item alarm-critical">
-                            <div class="alarm-time">10:18:42</div>
+                        <div class="alarm-item info">
+                            <div class="alarm-time">13:41:20</div>
                             <div class="alarm-content">
-                                <div class="alarm-icon">🔥</div>
-                                <div class="alarm-details">
-                                    <div class="alarm-title">TAST drift beyond limit (+420)</div>
-                                    <div class="alarm-action">Operator confirmation required</div>
-                                </div>
+                                <div class="alarm-title">Wire Feed Adjusted</div>
+                                <div class="alarm-description">Auto-correction: 9.2 → 9.8 m/min</div>
+                                <div class="alarm-badge badge-info">Info</div>
                             </div>
-                            <div class="alarm-badge badge-critical" data-i18n="ops.alarm.critical">Critical</div>
                         </div>
 
-                        <div class="alarm-item alarm-info">
-                            <div class="alarm-time">10:16:23</div>
+                        <div class="alarm-item resolved">
+                            <div class="alarm-time">13:40:45</div>
                             <div class="alarm-content">
-                                <div class="alarm-icon">✓</div>
-                                <div class="alarm-details">
-                                    <div class="alarm-title">Wire feed speed normalized</div>
-                                    <div class="alarm-action">Returned to target range (10.0 m/min)</div>
-                                </div>
+                                <div class="alarm-title">Voltage Stabilized</div>
+                                <div class="alarm-description">Voltage returned to normal range</div>
+                                <div class="alarm-badge badge-resolved">Resolved</div>
                             </div>
-                            <div class="alarm-badge badge-resolved" data-i18n="ops.alarm.resolved">Resolved</div>
                         </div>
 
-                        <div class="alarm-item alarm-warning">
-                            <div class="alarm-time">10:14:08</div>
+                        <div class="alarm-item resolved">
+                            <div class="alarm-time">13:39:12</div>
                             <div class="alarm-content">
-                                <div class="alarm-icon">⚡</div>
-                                <div class="alarm-details">
-                                    <div class="alarm-title">Current fluctuation detected</div>
-                                    <div class="alarm-action">Auto action: stabilized at 205 A</div>
-                                </div>
+                                <div class="alarm-title">Gas Flow Normal</div>
+                                <div class="alarm-description">Shielding gas pressure restored</div>
+                                <div class="alarm-badge badge-resolved">Resolved</div>
                             </div>
-                            <div class="alarm-badge badge-resolved" data-i18n="ops.alarm.resolved">Resolved</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Bottom Row: Running Jobs + Alarm Detail -->
-        <div class="ops-row">
-            <!-- Left: Running Jobs Table -->
-            <div class="ops-col-7">
-                <div class="ops-card">
-                    <div class="ops-card-header">
-                        <h2 class="ops-card-title" data-i18n="ops.table.jobs">Active & Recent Weld Jobs (Last 10 min)</h2>
+        <section class="grid-12">
+            <!-- Running Jobs Table -->
+            <div class="col-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Running Jobs</h2>
                     </div>
-                    <div class="ops-table-container">
-                        <table class="ops-table">
-                            <thead>
-                                <tr>
-                                    <th data-i18n="ops.table.starttime">Start Time</th>
-                                    <th data-i18n="ops.table.jobname">Job Name</th>
-                                    <th data-i18n="ops.table.cell">Cell / Line</th>
-                                    <th data-i18n="ops.table.duration">Duration (s)</th>
-                                    <th data-i18n="ops.table.risk">Quality Risk</th>
-                                    <th data-i18n="ops.table.status">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="table-row-active">
-                                    <td>10:21:00</td>
-                                    <td><strong>HYUNDAI_DOOR_INNER_STEP_12</strong></td>
-                                    <td>Line 3 · Cell A</td>
-                                    <td>7.4</td>
-                                    <td><span class="risk-badge risk-low" data-i18n="ops.table.risk.low">Low</span></td>
-                                    <td><span class="status-badge status-running" data-i18n="ops.table.status.running">Running</span></td>
-                                </tr>
-                                <tr>
-                                    <td>10:20:40</td>
-                                    <td>SHIP_BLOCK_07_PASS_2</td>
-                                    <td>Block 7 · Cell B</td>
-                                    <td>12.1</td>
-                                    <td><span class="risk-badge risk-medium" data-i18n="ops.table.risk.medium">Medium</span></td>
-                                    <td><span class="status-badge status-completed" data-i18n="ops.table.status.completed">Completed</span></td>
-                                </tr>
-                                <tr>
-                                    <td>10:20:10</td>
-                                    <td>SUPPLIER_C_TRIAL_03</td>
-                                    <td>Cell B</td>
-                                    <td>4.3</td>
-                                    <td><span class="risk-badge risk-high" data-i18n="ops.table.risk.high">High</span></td>
-                                    <td><span class="status-badge status-failed" data-i18n="ops.table.status.failed">Failed</span></td>
-                                </tr>
-                                <tr>
-                                    <td>10:19:35</td>
-                                    <td>HYUNDAI_DOOR_OUTER_STEP_08</td>
-                                    <td>Line 3 · Cell A</td>
-                                    <td>9.8</td>
-                                    <td><span class="risk-badge risk-low" data-i18n="ops.table.risk.low">Low</span></td>
-                                    <td><span class="status-badge status-completed" data-i18n="ops.table.status.completed">Completed</span></td>
-                                </tr>
-                                <tr>
-                                    <td>10:18:22</td>
-                                    <td>BLOCK_05_SEAM_WELD</td>
-                                    <td>Block 5 · Cell C</td>
-                                    <td>15.2</td>
-                                    <td><span class="risk-badge risk-medium" data-i18n="ops.table.risk.medium">Medium</span></td>
-                                    <td><span class="status-badge status-completed" data-i18n="ops.table.status.completed">Completed</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Robot / Cell</th>
+                                <th>Job Name</th>
+                                <th>Progress</th>
+                                <th>Time Remaining</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row-active">
+                                <td class="table-plant-name">Line 3 – MIG Cell A</td>
+                                <td>HYUNDAI_DOOR_INNER_STEP_12</td>
+                                <td>
+                                    <div class="table-progress">
+                                        <div class="table-progress-bar">
+                                            <div class="table-progress-fill" style="width: 66%"></div>
+                                        </div>
+                                        <span class="table-progress-text">66%</span>
+                                    </div>
+                                </td>
+                                <td>3.8 s</td>
+                                <td><span class="badge success">Welding</span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-plant-name">Line 3 – MIG Cell B</td>
+                                <td>KIA_FRAME_ASSY_05</td>
+                                <td>
+                                    <div class="table-progress">
+                                        <div class="table-progress-bar">
+                                            <div class="table-progress-fill" style="width: 34%"></div>
+                                        </div>
+                                        <span class="table-progress-text">34%</span>
+                                    </div>
+                                </td>
+                                <td>8.2 s</td>
+                                <td><span class="badge success">Welding</span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-plant-name">Line 2 – TIG Cell A</td>
+                                <td>PRECISION_TUBE_WELD_A8</td>
+                                <td>
+                                    <div class="table-progress">
+                                        <div class="table-progress-bar">
+                                            <div class="table-progress-fill" style="width: 89%"></div>
+                                        </div>
+                                        <span class="table-progress-text">89%</span>
+                                    </div>
+                                </td>
+                                <td>1.3 s</td>
+                                <td><span class="badge success">Welding</span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-plant-name">Line 1 – Spot Welding</td>
+                                <td>CHASSIS_SPOT_PATTERN_C</td>
+                                <td>
+                                    <div class="table-progress">
+                                        <div class="table-progress-bar">
+                                            <div class="table-progress-fill" style="width: 12%"></div>
+                                        </div>
+                                        <span class="table-progress-text">12%</span>
+                                    </div>
+                                </td>
+                                <td>14.5 s</td>
+                                <td><span class="badge warning">Starting</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <!-- Right: Alarm/Auto Action Detail Panel -->
-            <div class="ops-col-5">
-                <div class="ops-card">
-                    <div class="ops-card-header">
-                        <h2 class="ops-card-title" data-i18n="ops.detail.title">Selected Event Detail</h2>
+            <!-- Alarm / Auto Action Detail -->
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Alarm Detail & Auto Actions</h2>
                     </div>
-                    <div class="ops-detail-panel">
+                    <div class="alarm-detail-panel">
                         <div class="detail-section">
-                            <h3 class="detail-title" data-i18n="ops.event.voltage.spike">Voltage spike detected (31.8 V)</h3>
-                            <div class="detail-meta">
-                                <div class="detail-meta-item">
-                                    <span class="detail-label" data-i18n="ops.detail.time">Time:</span>
-                                    <span class="detail-value">10:21:34</span>
+                            <div class="detail-header">
+                                <span class="detail-icon critical">⚠️</span>
+                                <span class="detail-title">Current Spike Detected</span>
+                            </div>
+                            <div class="detail-info">
+                                <div class="detail-row">
+                                    <span class="detail-label">Time:</span>
+                                    <span class="detail-value">13:42:18</span>
                                 </div>
-                                <div class="detail-meta-item">
-                                    <span class="detail-label" data-i18n="ops.detail.job">Related Job:</span>
-                                    <span class="detail-value">HYUNDAI_DOOR_INNER_STEP_12</span>
+                                <div class="detail-row">
+                                    <span class="detail-label">Severity:</span>
+                                    <span class="detail-value critical-text">Critical</span>
                                 </div>
-                                <div class="detail-meta-item">
-                                    <span class="detail-label" data-i18n="ops.detail.cell">Cell:</span>
-                                    <span class="detail-value">Line 3 – MIG Cell A</span>
+                                <div class="detail-row">
+                                    <span class="detail-label">Parameter:</span>
+                                    <span class="detail-value">Current: 225A (limit: 210A)</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Duration:</span>
+                                    <span class="detail-value">0.8 seconds</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="detail-section">
-                            <h4 class="detail-subtitle" data-i18n="ops.detail.snapshot">Signal Snapshot</h4>
-                            <div class="detail-mini-chart" id="detailMiniChart">
-                                <!-- Mini chart will be rendered here -->
+                            <div class="detail-header">
+                                <span class="detail-icon info">🤖</span>
+                                <span class="detail-title">Auto Actions Taken</span>
+                            </div>
+                            <div class="action-log">
+                                <div class="action-log-item">
+                                    <span class="action-time">13:42:19</span>
+                                    <span class="action-text">Reduced current setpoint to 205A</span>
+                                </div>
+                                <div class="action-log-item">
+                                    <span class="action-time">13:42:20</span>
+                                    <span class="action-text">Adjusted wire feed to 9.5 m/min</span>
+                                </div>
+                                <div class="action-log-item">
+                                    <span class="action-time">13:42:21</span>
+                                    <span class="action-text">Monitoring for 10 seconds</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="detail-section">
-                            <h4 class="detail-subtitle" data-i18n="ops.detail.system.action">System Action</h4>
-                            <div class="detail-action-list">
-                                <div class="detail-action-item">
-                                    <span class="action-icon">✓</span>
-                                    <span data-i18n="ops.detail.action.speed">Reduced travel speed from 60 cm/min to 45 cm/min</span>
-                                </div>
-                                <div class="detail-action-item">
-                                    <span class="action-icon">🔍</span>
-                                    <span data-i18n="ops.detail.action.flag">Flagged weld for post-weld quality check</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4 class="detail-subtitle" data-i18n="ops.detail.operator.action">Operator Action</h4>
-                            <div class="detail-operator-status">
-                                <span class="status-badge status-pending" data-i18n="ops.alarm.pending">Pending</span>
-                                <button class="btn-confirm" data-i18n="ops.detail.confirm">Confirm as Normal</button>
-                            </div>
+                        <div class="detail-actions">
+                            <button class="btn-action btn-acknowledge">Acknowledge Alarm</button>
+                            <button class="btn-action btn-override">Override Auto Action</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="js/i18n.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/live-operations.js"></script>
 </body>
 </html>

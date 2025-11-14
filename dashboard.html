@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weld Insight - Executive Overview</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="main.html" class="logo" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                <img src="assets/icons/rbw_logo.png" alt="RB-WARE" class="logo-image">
+                <span>Weld Insight</span>
+            </a>
+        </div>
+        <div class="nav-center">
+            <div class="site-selector" id="siteSelectorDropdown">
+                <span class="site-selector-text" id="selectedSite" data-i18n="nav.site.all">조선소 전체</span>
+                <span class="site-selector-icon">▼</span>
+                <div class="site-dropdown" id="siteDropdown">
+                    <div class="site-option" data-value="all" data-i18n="nav.site.all">조선소 전체</div>
+                    <div class="site-option" data-value="line1" data-i18n="nav.site.line1">1라인</div>
+                    <div class="site-option" data-value="line2" data-i18n="nav.site.line2">2라인</div>
+                    <div class="site-option" data-value="line3" data-i18n="nav.site.line3">3라인</div>
+                </div>
+            </div>
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                <span class="live-text" data-i18n="nav.live">Live Now</span>
+                <span class="live-count" id="liveCount">12,243</span>
+                <span class="live-label" data-i18n="nav.live.label">welds today</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="lang-selector">
+                <button class="lang-option active" data-lang="en">EN</button>
+                <button class="lang-option" data-lang="ko">한글</button>
+            </div>
+            <div class="date-picker" id="datePickerDropdown">
+                <span>📅</span>
+                <span class="date-picker-text" id="selectedDate" data-i18n="nav.date.30d">최근 30일</span>
+                <span class="date-picker-icon">▼</span>
+                <div class="date-dropdown" id="dateDropdown">
+                    <div class="date-option" data-value="1d" data-i18n="nav.date.1d">최근 1일</div>
+                    <div class="date-option" data-value="3d" data-i18n="nav.date.3d">최근 3일</div>
+                    <div class="date-option" data-value="5d" data-i18n="nav.date.5d">최근 5일</div>
+                    <div class="date-option" data-value="10d" data-i18n="nav.date.10d">최근 10일</div>
+                    <div class="date-option" data-value="15d" data-i18n="nav.date.15d">최근 15일</div>
+                    <div class="date-option" data-value="30d" data-i18n="nav.date.30d">최근 30일</div>
+                </div>
+            </div>
+            <div class="user-profile" id="userProfileDropdown">
+                <div class="user-avatar">
+                    <img src="assets/icons/worker.png" alt="User" class="user-avatar-img">
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-dropdown-header">
+                        <img src="assets/icons/worker.png" alt="User" class="user-dropdown-avatar">
+                        <div class="user-dropdown-info">
+                            <div class="user-dropdown-name">Can Berk Sansoy</div>
+                            <div class="user-dropdown-email">admin@rbware.com</div>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-dropdown-menu">
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">👤</span>
+                            <span data-i18n="user.profile">프로필</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">⚙️</span>
+                            <span data-i18n="user.settings">설정</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">🔔</span>
+                            <span data-i18n="user.notifications">알림</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">❓</span>
+                            <span data-i18n="user.help">도움말</span>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-menu-item logout">
+                        <span class="user-menu-icon">🚪</span>
+                        <span data-i18n="user.logout">로그아웃</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="menu-item active">
+                <a href="dashboard.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">📊</span>
+                    <span data-i18n="menu.dashboard">Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="live-operations.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">⚡</span>
+                    <span data-i18n="menu.operations">Live Operations</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="quality-guardian.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">🛡️</span>
+                    <span data-i18n="menu.quality">Quality Guardian</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="recipes-playbook.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">📋</span>
+                    <span data-i18n="menu.recipes">Recipes & Playbook</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">💰</span>
+                <span data-i18n="menu.roi">ROI Simulator</span>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">🤖</span>
+                <span data-i18n="menu.fleet">Fleet View</span>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">🧠</span>
+                <span data-i18n="menu.ai">Data & AI Engine</span>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Success Story Banner -->
+        <div class="success-banner">
+            <div class="success-icon">⭐</div>
+            <div class="success-content">
+                <span class="success-label" data-i18n="banner.label">Latest Achievement:</span>
+                <span class="success-text" data-i18n="banner.text">Small Fab Shop reduced defects from 2.1% to 0.4% in 3 months - ROI achieved in 8 months</span>
+            </div>
+            <div class="success-badge" data-i18n="banner.badge">Real Result</div>
+        </div>
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1 class="page-title" data-i18n="page.title">Executive Overview – Plant Performance at a Glance</h1>
+            <p class="page-subtitle" data-i18n="page.subtitle">See how RB-Connect is improving your factory – in real numbers.</p>
+        </header>
+
+        <!-- KPI Cards Row -->
+        <section class="grid-12 mb-xl">
+            <!-- KPI Card 1: Total Weld Jobs -->
+            <div class="col-3">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-label" data-i18n="kpi.totalWelds">Total Weld Jobs</span>
+                        <div class="kpi-icon blue">⚡</div>
+                    </div>
+                    <div class="kpi-value">12,240</div>
+                    <div class="kpi-trend positive">
+                        <span class="trend-arrow">▲</span>
+                        <span>+43% <span data-i18n="kpi.trend.increase">vs previous month</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPI Card 2: Defect Rate -->
+            <div class="col-3">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-label" data-i18n="kpi.defectRate">Defect Rate</span>
+                        <div class="kpi-icon green">✓</div>
+                    </div>
+                    <div class="kpi-value">0.4%</div>
+                    <div class="kpi-trend positive">
+                        <span class="trend-arrow">▼</span>
+                        <span data-i18n="kpi.trend.defect">from 2.1% (baseline)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPI Card 3: Avg Cycle Time -->
+            <div class="col-3">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-label" data-i18n="kpi.cycleTime">Avg Cycle Time</span>
+                        <div class="kpi-icon teal">⏱️</div>
+                    </div>
+                    <div class="kpi-value">-43%</div>
+                    <div class="kpi-trend positive">
+                        <span class="trend-arrow">▼</span>
+                        <span data-i18n="kpi.trend.reduction">Time reduction achieved</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPI Card 4: Annual Savings -->
+            <div class="col-3">
+                <div class="kpi-card kpi-card-highlight">
+                    <div class="kpi-header">
+                        <span class="kpi-label" data-i18n="kpi.savings">Annual Savings</span>
+                        <div class="kpi-icon green">💰</div>
+                    </div>
+                    <div class="kpi-value" data-i18n="kpi.savings.value">$1.24M</div>
+                    <div class="kpi-trend positive">
+                        <span class="trend-arrow">▲</span>
+                        <span data-i18n="kpi.savings.trend">vs $890K projected</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Middle Row: Performance Trend & Impact -->
+        <section class="grid-12 mb-xl">
+            <!-- Performance Trend Chart -->
+            <div class="col-7">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title" data-i18n="chart.title">Production & Quality Trend</h2>
+                            <p class="card-subtitle" data-i18n="chart.subtitle">Last 90 days</p>
+                        </div>
+                        <div class="chart-tabs">
+                            <button class="chart-tab active" data-i18n="chart.tab.production">Production</button>
+                            <button class="chart-tab" data-i18n="chart.tab.quality">Quality</button>
+                        </div>
+                    </div>
+                    <div class="chart-container" id="chartContainer">
+                        <!-- Chart will be dynamically rendered by JavaScript -->
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon success">✓</div>
+                        <div class="insight-text" data-i18n="chart.insight">Defect rate has decreased by 1.4% over the last 30 days.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact Summary -->
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title" data-i18n="impact.title">Impact vs Before RB-Connect</h2>
+                            <p class="card-subtitle" data-i18n="impact.subtitle">Measured improvement</p>
+                        </div>
+                    </div>
+                    <div class="impact-grid">
+                        <div class="impact-item">
+                            <span class="impact-label" data-i18n="impact.labor">Labor Cost</span>
+                            <div class="impact-values">
+                                <span class="impact-before">3 <span data-i18n="impact.operators">operators</span></span>
+                                <span class="impact-arrow">→</span>
+                                <span class="impact-after">1 <span data-i18n="impact.operators">operator</span></span>
+                            </div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label" data-i18n="impact.defect">Defect Rate</span>
+                            <div class="impact-values">
+                                <span class="impact-before">2.1%</span>
+                                <span class="impact-arrow">→</span>
+                                <span class="impact-after">0.4%</span>
+                            </div>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-label" data-i18n="impact.rework">Rework Time</span>
+                            <div class="impact-values">
+                                <span class="impact-before">540h/month</span>
+                                <span class="impact-arrow">→</span>
+                                <span class="impact-after">120h/month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="impact-note" data-i18n="impact.note">
+                        Based on Hyundai A-line data (Jan–Mar 2025)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Row: Top Plants & Insights -->
+        <section class="grid-12">
+            <!-- Top Performing Robots -->
+            <div class="col-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title" data-i18n="table.title">Top Performing Robots</h2>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="table.robot">Robot / Station</th>
+                                <th data-i18n="table.totalWelds">Total Welds</th>
+                                <th data-i18n="table.defectRate">Defect Rate</th>
+                                <th data-i18n="table.uptime">Uptime</th>
+                                <th data-i18n="table.status">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="table-plant-name" data-i18n="table.robot1">Robot-A12 · Bay 1</td>
+                                <td>1,847</td>
+                                <td>0.2%</td>
+                                <td>97%</td>
+                                <td><span class="badge success" data-i18n="badge.excellent">Excellent</span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-plant-name" data-i18n="table.robot2">Welder-B05 · Line 2</td>
+                                <td>1,623</td>
+                                <td>0.4%</td>
+                                <td>95%</td>
+                                <td><span class="badge success" data-i18n="badge.good">Good</span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-plant-name" data-i18n="table.robot3">Robot-C33 · Station 3</td>
+                                <td>1,445</td>
+                                <td>0.6%</td>
+                                <td>94%</td>
+                                <td><span class="badge success" data-i18n="badge.good">Good</span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-plant-name" data-i18n="table.robot4">Welder-D08 · Bay 2</td>
+                                <td>1,289</td>
+                                <td>0.8%</td>
+                                <td>91%</td>
+                                <td><span class="badge warning" data-i18n="badge.improving">Improving</span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-plant-name" data-i18n="table.robot5">Robot-E21 · Line 1</td>
+                                <td>1,036</td>
+                                <td>1.2%</td>
+                                <td>89%</td>
+                                <td><span class="badge info" data-i18n="badge.stable">Stable</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Key Highlights -->
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title" data-i18n="insights.title">Key Highlights – This Month</h2>
+                    </div>
+                    <ul class="insights-list">
+                        <li class="insight-item">
+                            <div class="insight-icon success">✓</div>
+                            <div class="insight-text" data-i18n="insight.1">Robot-A12 achieved 0.2% defect rate this week - best performance recorded.</div>
+                        </li>
+                        <li class="insight-item">
+                            <div class="insight-icon warning">⚠</div>
+                            <div class="insight-text" data-i18n="insight.2">Welder-D08 showing higher defects (0.8%) - recommended parameter adjustment.</div>
+                        </li>
+                        <li class="insight-item">
+                            <div class="insight-icon info">ℹ</div>
+                            <div class="insight-text" data-i18n="insight.3">AI detected 23 potential defects early - prevented rework on 18 parts.</div>
+                        </li>
+                        <li class="insight-item">
+                            <div class="insight-icon success">🎯</div>
+                            <div class="insight-text" data-i18n="insight.4">Overall fleet uptime improved to 94% (target: 90%) - 3 month trend.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

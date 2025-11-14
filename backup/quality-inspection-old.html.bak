@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Inspection Dashboard - Weld Insight</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quality-inspection.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="main.html" class="logo" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                <img src="assets/icons/rbw_logo.png" alt="RB-WARE" class="logo-image">
+                <span>Weld Insight</span>
+            </a>
+        </div>
+        <div class="nav-center">
+            <div class="site-selector" id="siteSelectorDropdown">
+                <span class="site-selector-text" id="selectedSite">조선소 전체</span>
+                <span class="site-selector-icon">▼</span>
+                <div class="site-dropdown" id="siteDropdown">
+                    <div class="site-option" data-value="all">조선소 전체</div>
+                    <div class="site-option" data-value="line1">1라인</div>
+                    <div class="site-option" data-value="line2">2라인</div>
+                    <div class="site-option" data-value="line3">3라인</div>
+                </div>
+            </div>
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                <span class="live-text">Live Now</span>
+                <span class="live-count" id="liveCount">12,243</span>
+                <span class="live-label">welds today</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="lang-selector">
+                <button class="lang-option active" data-lang="en">EN</button>
+                <button class="lang-option" data-lang="ko">한글</button>
+            </div>
+            <div class="date-picker" id="datePickerDropdown">
+                <span>📅</span>
+                <span class="date-picker-text" id="selectedDate">최근 30일</span>
+                <span class="date-picker-icon">▼</span>
+                <div class="date-dropdown" id="dateDropdown">
+                    <div class="date-option" data-value="1d">최근 1일</div>
+                    <div class="date-option" data-value="3d">최근 3일</div>
+                    <div class="date-option" data-value="5d">최근 5일</div>
+                    <div class="date-option" data-value="10d">최근 10일</div>
+                    <div class="date-option" data-value="15d">최근 15일</div>
+                    <div class="date-option" data-value="30d">최근 30일</div>
+                </div>
+            </div>
+            <div class="user-profile" id="userProfileDropdown">
+                <div class="user-avatar">
+                    <img src="assets/icons/worker.png" alt="User" class="user-avatar-img">
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-dropdown-header">
+                        <img src="assets/icons/worker.png" alt="User" class="user-dropdown-avatar">
+                        <div class="user-dropdown-info">
+                            <div class="user-dropdown-name">Can Berk Sansoy</div>
+                            <div class="user-dropdown-email">admin@rbware.com</div>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-dropdown-menu">
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">👤</span>
+                            <span>프로필</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">⚙️</span>
+                            <span>설정</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">🔔</span>
+                            <span>알림</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">❓</span>
+                            <span>도움말</span>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-menu-item logout">
+                        <span class="user-menu-icon">🚪</span>
+                        <span>로그아웃</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="live-operations.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">⚡</span>
+                    <span>Live Operations</span>
+                </a>
+            </li>
+            <li class="menu-item active">
+                <a href="quality-inspection.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">🛡️</span>
+                    <span>Quality Guardian</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">📋</span>
+                <span>Recipes & Playbook</span>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">💰</span>
+                <span>ROI Simulator</span>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">🤖</span>
+                <span>Fleet View</span>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">🧠</span>
+                <span>Data & AI Engine</span>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+    <div class="page-container">
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-left">
+                <h1>Quality Inspection Dashboard</h1>
+                <p class="header-subtitle">Weld ID: WLD-2025-00347 | Robot: ROBOT-03 | Completed: 13:42:15</p>
+            </div>
+            <div class="header-right">
+                <div class="status-badge status-warning">
+                    <span class="status-dot"></span>
+                    <span>3 Defects Detected</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weld Parameters Section -->
+        <div class="parameters-section">
+            <h2 class="section-title">Weld Parameters & Setup</h2>
+            <div class="parameters-grid">
+                <!-- Wire Specifications -->
+                <div class="param-card">
+                    <div class="param-header">
+                        <span class="param-icon">🔌</span>
+                        <h3>Filler Wire</h3>
+                    </div>
+                    <div class="param-details">
+                        <div class="param-row">
+                            <span class="param-label">Product Name:</span>
+                            <span class="param-value">ER70S-6 (AWS A5.18)</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Composition:</span>
+                            <span class="param-value">Cu 0.15% / Si 0.90% / Mn 1.50%</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Wire Diameter:</span>
+                            <span class="param-value highlight">1.2mm</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Wire Feed Speed:</span>
+                            <span class="param-value">8.5 m/min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shielding Gas -->
+                <div class="param-card">
+                    <div class="param-header">
+                        <span class="param-icon">💨</span>
+                        <h3>Shielding Gas</h3>
+                    </div>
+                    <div class="param-details">
+                        <div class="param-row">
+                            <span class="param-label">Gas Mix:</span>
+                            <span class="param-value">Ar 98% + CO₂ 2%</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Flow Rate:</span>
+                            <span class="param-value highlight">15 L/min</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Purity Grade:</span>
+                            <span class="param-value">99.997% (UHP)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Base Material -->
+                <div class="param-card">
+                    <div class="param-header">
+                        <span class="param-icon">🔩</span>
+                        <h3>Base Material (Parent Metal)</h3>
+                    </div>
+                    <div class="param-details">
+                        <div class="param-row">
+                            <span class="param-label">Material Grade:</span>
+                            <span class="param-value">SM490A (JIS G3106)</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Composition:</span>
+                            <span class="param-value">C 0.18% / Si 0.35% / Mn 1.40%</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Thickness:</span>
+                            <span class="param-value highlight">12mm</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Joint Type:</span>
+                            <span class="param-value">Fillet Weld (T-Joint)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Welding Conditions -->
+                <div class="param-card">
+                    <div class="param-header">
+                        <span class="param-icon">⚡</span>
+                        <h3>Welding Conditions</h3>
+                    </div>
+                    <div class="param-details">
+                        <div class="param-row">
+                            <span class="param-label">Process:</span>
+                            <span class="param-value">GMAW (MIG/MAG)</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Current:</span>
+                            <span class="param-value highlight">245A (±5A)</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Voltage:</span>
+                            <span class="param-value highlight">28.5V (±0.5V)</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Travel Speed:</span>
+                            <span class="param-value">35 cm/min</span>
+                        </div>
+                        <div class="param-row">
+                            <span class="param-label">Purpose:</span>
+                            <span class="param-value">Structural Frame Assembly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weld Bead Visual -->
+        <div class="bead-section">
+            <h2 class="section-title">Weld Bead Inspection Map</h2>
+            <div class="bead-container">
+                <!-- Bead Overview -->
+                <div class="bead-visual">
+                    <div class="bead-header">
+                        <div class="bead-info">
+                            <span>Total Length: 1,850mm</span>
+                            <span>•</span>
+                            <span>Pass/Fail Threshold: 95%</span>
+                            <span>•</span>
+                            <span class="quality-score quality-warning">Quality Score: 89.2%</span>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item">
+                                <span class="legend-color color-good"></span>
+                                <span>Good (1,610mm)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color color-warning"></span>
+                                <span>Warning (140mm)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color color-defect"></span>
+                                <span>Defect (100mm)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bead Bar -->
+                    <div class="bead-bar-container">
+                        <div class="bead-ruler">
+                            <span>0mm</span>
+                            <span>500mm</span>
+                            <span>1000mm</span>
+                            <span>1500mm</span>
+                            <span>1850mm</span>
+                        </div>
+                        <div class="bead-bar">
+                            <!-- Good segment -->
+                            <div class="bead-segment segment-good" style="width: 32.4%;" data-start="0" data-end="600"></div>
+
+                            <!-- Defect 1: Porosity -->
+                            <div class="bead-segment segment-defect clickable" style="width: 4.3%;"
+                                 data-defect="1"
+                                 data-start="600"
+                                 data-end="680"
+                                 data-type="Porosity"
+                                 data-severity="High"
+                                 onclick="showDefectDetail(1)">
+                                <span class="defect-marker">⚠ 1</span>
+                            </div>
+
+                            <!-- Good segment -->
+                            <div class="bead-segment segment-good" style="width: 17.3%;" data-start="680" data-end="1000"></div>
+
+                            <!-- Warning: Undercut tendency -->
+                            <div class="bead-segment segment-warning clickable" style="width: 7.6%;"
+                                 data-defect="2"
+                                 data-start="1000"
+                                 data-end="1140"
+                                 data-type="Undercut Tendency"
+                                 data-severity="Medium"
+                                 onclick="showDefectDetail(2)">
+                                <span class="warning-marker">! 2</span>
+                            </div>
+
+                            <!-- Good segment -->
+                            <div class="bead-segment segment-good" style="width: 16.2%;" data-start="1140" data-end="1440"></div>
+
+                            <!-- Defect 3: Lack of Fusion -->
+                            <div class="bead-segment segment-defect clickable" style="width: 1.1%;"
+                                 data-defect="3"
+                                 data-start="1440"
+                                 data-end="1460"
+                                 data-type="Lack of Fusion"
+                                 data-severity="Critical"
+                                 onclick="showDefectDetail(3)">
+                                <span class="defect-marker">⚠ 3</span>
+                            </div>
+
+                            <!-- Good segment -->
+                            <div class="bead-segment segment-good" style="width: 21.1%;" data-start="1460" data-end="1850"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Defect Details Panel -->
+                <div class="defects-panel">
+                    <h3>Detected Issues (3)</h3>
+
+                    <!-- Defect 1 -->
+                    <div class="defect-card defect-high" id="defect-1">
+                        <div class="defect-header">
+                            <div class="defect-title">
+                                <span class="defect-number">1</span>
+                                <span class="defect-type">Porosity</span>
+                            </div>
+                            <span class="severity-badge severity-high">High</span>
+                        </div>
+                        <div class="defect-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Location:</span>
+                                <span class="detail-value">600mm - 680mm (80mm length)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Detection Time:</span>
+                                <span class="detail-value">13:41:23</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Probable Cause:</span>
+                                <span class="detail-value">Gas flow disruption detected (dropped to 11 L/min)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">AI Confidence:</span>
+                                <span class="detail-value confidence-high">94.3%</span>
+                            </div>
+                        </div>
+                        <div class="defect-actions">
+                            <button class="action-btn btn-repair">
+                                <span>🔧</span>
+                                <span>Mark for Re-weld</span>
+                            </button>
+                            <button class="action-btn btn-detail">View Signal Data</button>
+                        </div>
+                    </div>
+
+                    <!-- Defect 2 -->
+                    <div class="defect-card defect-medium" id="defect-2">
+                        <div class="defect-header">
+                            <div class="defect-title">
+                                <span class="defect-number">2</span>
+                                <span class="defect-type">Undercut Tendency</span>
+                            </div>
+                            <span class="severity-badge severity-medium">Medium</span>
+                        </div>
+                        <div class="defect-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Location:</span>
+                                <span class="detail-value">1000mm - 1140mm (140mm length)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Detection Time:</span>
+                                <span class="detail-value">13:41:48</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Probable Cause:</span>
+                                <span class="detail-value">Travel speed 8% faster than optimal (38 cm/min)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">AI Confidence:</span>
+                                <span class="detail-value confidence-medium">87.1%</span>
+                            </div>
+                        </div>
+                        <div class="defect-actions">
+                            <button class="action-btn btn-inspect">
+                                <span>🔍</span>
+                                <span>Mark for Re-inspection</span>
+                            </button>
+                            <button class="action-btn btn-detail">View Signal Data</button>
+                        </div>
+                    </div>
+
+                    <!-- Defect 3 -->
+                    <div class="defect-card defect-critical" id="defect-3">
+                        <div class="defect-header">
+                            <div class="defect-title">
+                                <span class="defect-number">3</span>
+                                <span class="defect-type">Lack of Fusion</span>
+                            </div>
+                            <span class="severity-badge severity-critical">Critical</span>
+                        </div>
+                        <div class="defect-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Location:</span>
+                                <span class="detail-value">1440mm - 1460mm (20mm length)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Detection Time:</span>
+                                <span class="detail-value">13:42:08</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Probable Cause:</span>
+                                <span class="detail-value">Current dropped to 218A (11% below spec)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">AI Confidence:</span>
+                                <span class="detail-value confidence-high">96.8%</span>
+                            </div>
+                        </div>
+                        <div class="defect-actions">
+                            <button class="action-btn btn-repair critical">
+                                <span>⚠️</span>
+                                <span>MUST Re-weld - Critical</span>
+                            </button>
+                            <button class="action-btn btn-detail">View Signal Data</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signal Analysis -->
+        <div class="signal-section">
+            <h2 class="section-title">Welding Signal Analysis</h2>
+            <div class="signal-charts">
+                <!-- Current Chart -->
+                <div class="chart-container">
+                    <h3>Current (A)</h3>
+                    <canvas id="currentChart"></canvas>
+                    <div class="chart-annotation">
+                        <span class="annotation-warning">Defect #3: Current drop to 218A</span>
+                    </div>
+                </div>
+
+                <!-- Voltage Chart -->
+                <div class="chart-container">
+                    <h3>Voltage (V)</h3>
+                    <canvas id="voltageChart"></canvas>
+                </div>
+
+                <!-- Wire Feed Chart -->
+                <div class="chart-container">
+                    <h3>Wire Feed Speed (m/min)</h3>
+                    <canvas id="wireFeedChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Summary -->
+        <div class="action-summary">
+            <div class="summary-card">
+                <h3>Quality Inspector Actions Required</h3>
+                <div class="action-checklist">
+                    <label class="checklist-item">
+                        <input type="checkbox">
+                        <span class="checklist-text">
+                            <strong>Re-weld:</strong> Segment 600-680mm (Porosity - High severity)
+                        </span>
+                    </label>
+                    <label class="checklist-item">
+                        <input type="checkbox">
+                        <span class="checklist-text">
+                            <strong>Re-inspect:</strong> Segment 1000-1140mm (Undercut tendency - Verify with UT/RT)
+                        </span>
+                    </label>
+                    <label class="checklist-item">
+                        <input type="checkbox">
+                        <span class="checklist-text">
+                            <strong>Re-weld (CRITICAL):</strong> Segment 1440-1460mm (Lack of fusion - Structural integrity risk)
+                        </span>
+                    </label>
+                    <label class="checklist-item">
+                        <input type="checkbox">
+                        <span class="checklist-text">
+                            <strong>Equipment Check:</strong> Verify gas flow regulator and wire feeder calibration
+                        </span>
+                    </label>
+                    <label class="checklist-item">
+                        <input type="checkbox">
+                        <span class="checklist-text">
+                            <strong>Update Work Order:</strong> Document findings in NCR-2025-00089
+                        </span>
+                    </label>
+                </div>
+                <div class="summary-footer">
+                    <button class="btn-primary-lg">Generate Inspection Report</button>
+                    <button class="btn-secondary-lg">Create Work Order</button>
+                    <button class="btn-outline">Export to PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Footer -->
+        <div class="stats-footer">
+            <div class="stat-box">
+                <div class="stat-label">Total Inspection Time</div>
+                <div class="stat-value">47 seconds</div>
+                <div class="stat-compare">vs. 15-20 min manual</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Time Saved</div>
+                <div class="stat-value">94.8%</div>
+                <div class="stat-compare success">18 min saved per weld</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Detection Accuracy</div>
+                <div class="stat-value">92.7%</div>
+                <div class="stat-compare">AI Confidence Avg.</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Est. Cost Impact</div>
+                <div class="stat-value">$340</div>
+                <div class="stat-compare">Rework cost prevented</div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/quality-inspection.js"></script>
+</body>
+</html>

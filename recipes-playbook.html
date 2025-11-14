@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes & Playbook - Weld Insight</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/recipes-playbook.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="main.html" class="logo" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                <img src="assets/icons/rbw_logo.png" alt="RB-WARE" class="logo-image">
+                <span>Weld Insight</span>
+            </a>
+        </div>
+        <div class="nav-center">
+            <div class="site-selector" id="siteSelectorDropdown">
+                <span class="site-selector-text" id="selectedSite" data-i18n="nav.site.all">조선소 전체</span>
+                <span class="site-selector-icon">▼</span>
+                <div class="site-dropdown" id="siteDropdown">
+                    <div class="site-option" data-value="all" data-i18n="nav.site.all">조선소 전체</div>
+                    <div class="site-option" data-value="line1" data-i18n="nav.site.line1">1라인</div>
+                    <div class="site-option" data-value="line2" data-i18n="nav.site.line2">2라인</div>
+                    <div class="site-option" data-value="line3" data-i18n="nav.site.line3">3라인</div>
+                </div>
+            </div>
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                <span class="live-text" data-i18n="nav.live">Live Now</span>
+                <span class="live-count" id="liveCount">12,243</span>
+                <span class="live-label" data-i18n="nav.live.label">welds today</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="lang-selector">
+                <button class="lang-option active" data-lang="en">EN</button>
+                <button class="lang-option" data-lang="ko">한글</button>
+            </div>
+            <div class="date-picker" id="datePickerDropdown">
+                <span>📅</span>
+                <span class="date-picker-text" id="selectedDate" data-i18n="nav.date.30d">최근 30일</span>
+                <span class="date-picker-icon">▼</span>
+                <div class="date-dropdown" id="dateDropdown">
+                    <div class="date-option" data-value="1d" data-i18n="nav.date.1d">최근 1일</div>
+                    <div class="date-option" data-value="3d" data-i18n="nav.date.3d">최근 3일</div>
+                    <div class="date-option" data-value="5d" data-i18n="nav.date.5d">최근 5일</div>
+                    <div class="date-option" data-value="10d" data-i18n="nav.date.10d">최근 10일</div>
+                    <div class="date-option" data-value="15d" data-i18n="nav.date.15d">최근 15일</div>
+                    <div class="date-option" data-value="30d" data-i18n="nav.date.30d">최근 30일</div>
+                </div>
+            </div>
+            <div class="user-profile" id="userProfileDropdown">
+                <div class="user-avatar">
+                    <img src="assets/icons/worker.png" alt="User" class="user-avatar-img">
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-dropdown-header">
+                        <img src="assets/icons/worker.png" alt="User" class="user-dropdown-avatar">
+                        <div class="user-dropdown-info">
+                            <div class="user-dropdown-name">Can Berk Sansoy</div>
+                            <div class="user-dropdown-email">admin@rbware.com</div>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-dropdown-menu">
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">👤</span>
+                            <span data-i18n="user.profile">프로필</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">⚙️</span>
+                            <span data-i18n="user.settings">설정</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">🔔</span>
+                            <span data-i18n="user.notifications">알림</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">❓</span>
+                            <span data-i18n="user.help">도움말</span>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-menu-item logout">
+                        <span class="user-menu-icon">🚪</span>
+                        <span data-i18n="user.logout">로그아웃</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="dashboard.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">📊</span>
+                    <span data-i18n="menu.dashboard">Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="live-operations.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">⚡</span>
+                    <span data-i18n="menu.operations">Live Operations</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="quality-guardian.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">🛡️</span>
+                    <span data-i18n="menu.quality">Quality Guardian</span>
+                </a>
+            </li>
+            <li class="menu-item active">
+                <a href="recipes-playbook.html" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                    <span class="menu-icon">📋</span>
+                    <span data-i18n="menu.recipes">Recipes & Playbook</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">💰</span>
+                <span data-i18n="menu.roi">ROI Simulator</span>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">🤖</span>
+                <span data-i18n="menu.fleet">Fleet View</span>
+            </li>
+            <li class="menu-item">
+                <span class="menu-icon">🧠</span>
+                <span data-i18n="menu.ai">Data & AI Engine</span>
+            </li>
+        </ul>
+    </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Row: Page Header + Global Filters -->
+            <div class="page-header-row">
+                <div class="page-header">
+                    <h1>Recipes & Playbook</h1>
+                    <p class="page-subtitle">Proven weld conditions backed by real production data</p>
+                </div>
+                <div class="global-filters-card">
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <label>Material</label>
+                            <select id="filter-material">
+                                <option value="all">All Materials</option>
+                                <option value="SM490A">SM490A</option>
+                                <option value="SS400">SS400</option>
+                                <option value="SUS304">SUS304</option>
+                                <option value="A36">A36</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Thickness (mm)</label>
+                            <select id="filter-thickness">
+                                <option value="all">All Thickness</option>
+                                <option value="3-5">3-5mm</option>
+                                <option value="6-9">6-9mm</option>
+                                <option value="10-15">10-15mm</option>
+                                <option value="16+">16mm+</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Joint Type</label>
+                            <select id="filter-joint">
+                                <option value="all">All Joints</option>
+                                <option value="butt">Butt</option>
+                                <option value="fillet">Fillet</option>
+                                <option value="lap">Lap</option>
+                                <option value="corner">Corner</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Welding Position</label>
+                            <select id="filter-position">
+                                <option value="all">All Positions</option>
+                                <option value="1G">1G (Flat)</option>
+                                <option value="2G">2G (Horizontal)</option>
+                                <option value="3G">3G (Vertical)</option>
+                                <option value="4G">4G (Overhead)</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Welder Model</label>
+                            <select id="filter-welder">
+                                <option value="all">All Models</option>
+                                <option value="OTC-FD-V8">OTC FD-V8</option>
+                                <option value="YASKAWA-AR1730">YASKAWA AR1730</option>
+                                <option value="FANUC-ARC-M20">FANUC ARC M-20</option>
+                            </select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn-filter-apply" id="btn-apply-filters">Apply Filters</button>
+                            <button class="btn-filter-reset" id="btn-reset-filters">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Row: Recipe List + Selected Recipe Details -->
+            <div class="middle-row">
+                <!-- Left: Recipe List (7 columns) -->
+                <div class="recipe-list-card">
+                    <div class="card-header">
+                        <h2>Recipe Library</h2>
+                        <div class="sort-options">
+                            <label>Sort by:</label>
+                            <select id="sort-recipes">
+                                <option value="defect-rate">Defect Rate</option>
+                                <option value="usage">Most Used</option>
+                                <option value="recent">Recently Updated</option>
+                                <option value="name">Name</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="recipe-list" id="recipe-list">
+                        <!-- Recipe items will be dynamically inserted -->
+                        <div class="recipe-item active" data-recipe-id="R-2024-001">
+                            <div class="recipe-item-header">
+                                <div class="recipe-name">SM490A-6mm-Butt-1G</div>
+                                <div class="recipe-badge verified">Verified</div>
+                            </div>
+                            <div class="recipe-specs">
+                                <span class="spec-item">Material: SM490A</span>
+                                <span class="spec-item">Thickness: 6mm</span>
+                                <span class="spec-item">Joint: Butt</span>
+                                <span class="spec-item">Position: 1G</span>
+                            </div>
+                            <div class="recipe-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Defect Rate</span>
+                                    <span class="metric-value success">0.8%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Cycle Time</span>
+                                    <span class="metric-value">42s</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Usage</span>
+                                    <span class="metric-value">1,247 welds</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-item" data-recipe-id="R-2024-002">
+                            <div class="recipe-item-header">
+                                <div class="recipe-name">SS400-9mm-Fillet-2G</div>
+                                <div class="recipe-badge verified">Verified</div>
+                            </div>
+                            <div class="recipe-specs">
+                                <span class="spec-item">Material: SS400</span>
+                                <span class="spec-item">Thickness: 9mm</span>
+                                <span class="spec-item">Joint: Fillet</span>
+                                <span class="spec-item">Position: 2G</span>
+                            </div>
+                            <div class="recipe-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Defect Rate</span>
+                                    <span class="metric-value success">1.2%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Cycle Time</span>
+                                    <span class="metric-value">58s</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Usage</span>
+                                    <span class="metric-value">892 welds</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-item" data-recipe-id="R-2024-003">
+                            <div class="recipe-item-header">
+                                <div class="recipe-name">SUS304-4mm-Lap-1G</div>
+                                <div class="recipe-badge draft">Draft</div>
+                            </div>
+                            <div class="recipe-specs">
+                                <span class="spec-item">Material: SUS304</span>
+                                <span class="spec-item">Thickness: 4mm</span>
+                                <span class="spec-item">Joint: Lap</span>
+                                <span class="spec-item">Position: 1G</span>
+                            </div>
+                            <div class="recipe-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Defect Rate</span>
+                                    <span class="metric-value warning">2.5%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Cycle Time</span>
+                                    <span class="metric-value">35s</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Usage</span>
+                                    <span class="metric-value">156 welds</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-item" data-recipe-id="R-2023-045">
+                            <div class="recipe-item-header">
+                                <div class="recipe-name">SM490A-12mm-Butt-3G</div>
+                                <div class="recipe-badge verified">Verified</div>
+                            </div>
+                            <div class="recipe-specs">
+                                <span class="spec-item">Material: SM490A</span>
+                                <span class="spec-item">Thickness: 12mm</span>
+                                <span class="spec-item">Joint: Butt</span>
+                                <span class="spec-item">Position: 3G</span>
+                            </div>
+                            <div class="recipe-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Defect Rate</span>
+                                    <span class="metric-value success">1.4%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Cycle Time</span>
+                                    <span class="metric-value">78s</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Usage</span>
+                                    <span class="metric-value">634 welds</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-item" data-recipe-id="R-2024-007">
+                            <div class="recipe-item-header">
+                                <div class="recipe-name">A36-8mm-Fillet-1G</div>
+                                <div class="recipe-badge verified">Verified</div>
+                            </div>
+                            <div class="recipe-specs">
+                                <span class="spec-item">Material: A36</span>
+                                <span class="spec-item">Thickness: 8mm</span>
+                                <span class="spec-item">Joint: Fillet</span>
+                                <span class="spec-item">Position: 1G</span>
+                            </div>
+                            <div class="recipe-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Defect Rate</span>
+                                    <span class="metric-value success">0.9%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Cycle Time</span>
+                                    <span class="metric-value">52s</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Usage</span>
+                                    <span class="metric-value">445 welds</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Selected Recipe Details (5 columns) -->
+                <div class="recipe-detail-card">
+                    <div class="card-header">
+                        <h2 id="detail-recipe-name">SM490A-6mm-Butt-1G</h2>
+                        <div class="detail-actions">
+                            <button class="btn-action btn-export">Export WPS</button>
+                            <button class="btn-action btn-deploy">Deploy to Robot</button>
+                        </div>
+                    </div>
+
+                    <div class="detail-content">
+                        <!-- Recipe Info -->
+                        <div class="detail-section">
+                            <h3>Recipe Information</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Recipe ID</span>
+                                    <span class="info-value">R-2024-001</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Version</span>
+                                    <span class="info-value">v3.2</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Status</span>
+                                    <span class="info-value"><span class="badge verified">Verified</span></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Last Updated</span>
+                                    <span class="info-value">2024-11-10</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Weld Parameters -->
+                        <div class="detail-section">
+                            <h3>Weld Parameters</h3>
+                            <table class="params-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Value</th>
+                                        <th>Tolerance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Current (A)</td>
+                                        <td>220</td>
+                                        <td>±10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Voltage (V)</td>
+                                        <td>24.5</td>
+                                        <td>±1.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>WFS (m/min)</td>
+                                        <td>8.2</td>
+                                        <td>±0.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Travel Speed (cm/min)</td>
+                                        <td>35</td>
+                                        <td>±3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CTWD (mm)</td>
+                                        <td>15</td>
+                                        <td>±2</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Consumables -->
+                        <div class="detail-section">
+                            <h3>Consumables & Setup</h3>
+                            <div class="consumables-list">
+                                <div class="consumable-item">
+                                    <span class="consumable-label">Wire</span>
+                                    <span class="consumable-value">ER70S-6, 1.2mm</span>
+                                </div>
+                                <div class="consumable-item">
+                                    <span class="consumable-label">Gas</span>
+                                    <span class="consumable-value">Ar 98% + CO₂ 2%, 18 L/min</span>
+                                </div>
+                                <div class="consumable-item">
+                                    <span class="consumable-label">Nozzle</span>
+                                    <span class="consumable-value">Taper Type, 16mm</span>
+                                </div>
+                                <div class="consumable-item">
+                                    <span class="consumable-label">Torch Angle</span>
+                                    <span class="consumable-value">Push 10°</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row: Performance Trends + Application/Version History -->
+            <div class="bottom-row">
+                <!-- Left: Performance Trends (7-8 columns) -->
+                <div class="performance-card">
+                    <div class="card-header">
+                        <h2>Performance Trends</h2>
+                        <div class="trend-tabs">
+                            <button class="trend-tab active" data-tab="defect">Defect Rate</button>
+                            <button class="trend-tab" data-tab="cycle">Cycle Time</button>
+                            <button class="trend-tab" data-tab="usage">Usage</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="performance-chart"></canvas>
+                    </div>
+                    <div class="trend-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">30-Day Avg</span>
+                            <span class="stat-value success">0.8%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Best Week</span>
+                            <span class="stat-value">0.4%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Trend</span>
+                            <span class="stat-value trend-down">-15% ↓</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Application & Version History (4-5 columns) -->
+                <div class="history-card">
+                    <div class="card-header">
+                        <h2>Application & Version History</h2>
+                    </div>
+                    <div class="history-list">
+                        <div class="history-item">
+                            <div class="history-marker deployed"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <span class="history-version">v3.2 Deployed</span>
+                                    <span class="history-date">2024-11-10 14:30</span>
+                                </div>
+                                <div class="history-details">
+                                    <div class="history-target">Robot #12, #15, #23</div>
+                                    <div class="history-note">Optimized WFS for better penetration</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="history-item">
+                            <div class="history-marker tested"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <span class="history-version">v3.2 Tested</span>
+                                    <span class="history-date">2024-11-08 09:15</span>
+                                </div>
+                                <div class="history-details">
+                                    <div class="history-target">Test Robot #99</div>
+                                    <div class="history-note">100 test welds, 0% defect rate</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="history-item">
+                            <div class="history-marker deployed"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <span class="history-version">v3.1 Deployed</span>
+                                    <span class="history-date">2024-10-25 16:20</span>
+                                </div>
+                                <div class="history-details">
+                                    <div class="history-target">Robot #12, #15, #23</div>
+                                    <div class="history-note">Adjusted current for thicker workpieces</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="history-item">
+                            <div class="history-marker created"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <span class="history-version">v3.0 Created</span>
+                                    <span class="history-date">2024-10-15 11:00</span>
+                                </div>
+                                <div class="history-details">
+                                    <div class="history-target">Initial Release</div>
+                                    <div class="history-note">First production-ready version</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="history-item">
+                            <div class="history-marker tested"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <span class="history-version">v2.8 Tested</span>
+                                    <span class="history-date">2024-10-10 13:45</span>
+                                </div>
+                                <div class="history-details">
+                                    <div class="history-target">Test Robot #99</div>
+                                    <div class="history-note">Validation testing in progress</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/recipes-playbook.js"></script>
+</body>
+</html>
