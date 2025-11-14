@@ -265,10 +265,16 @@ function formatNumber(num) {
     return Math.round(num).toLocaleString('ko-KR');
 }
 
-// Auto-calculate on input change
+// Auto-calculate on input change (debounced)
+let calculateTimeout;
 document.addEventListener('DOMContentLoaded', function() {
     const inputs = document.querySelectorAll('input, select');
     inputs.forEach(input => {
-        input.addEventListener('change', calculateROI);
+        input.addEventListener('input', () => {
+            clearTimeout(calculateTimeout);
+            calculateTimeout = setTimeout(() => {
+                calculateROI();
+            }, 500);
+        });
     });
 });
