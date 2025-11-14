@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weld Insight - Transform Your Welding Operations</title>
+    <title>RB-Connect - 용접이 스스로 진화하는 시스템</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/main-landing.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 </head>
 <body class="landing-page">
@@ -17,26 +17,22 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <img src="assets/icons/rbw_logo.png" alt="RB-WARE" class="nav-logo-image">
-                <span class="nav-logo-text">Weld Insight</span>
+                <span class="nav-logo-text">RB-Connect</span>
             </div>
             <div class="nav-links">
-                <a href="#features" data-i18n="nav.features">Features</a>
-                <a href="#benefits" data-i18n="nav.benefits">Benefits</a>
-                <a href="#roi" data-i18n="nav.roi">ROI Calculator</a>
-                <a href="#testimonials" data-i18n="nav.testimonials">Success Stories</a>
+                <a href="#why" data-i18n="nav.why">Why RB-Connect</a>
+                <a href="#evolution" data-i18n="nav.evolution">Our Evolution</a>
+                <a href="#impact" data-i18n="nav.impact">Impact</a>
+                <a href="#proof" data-i18n="nav.proof">Proof</a>
             </div>
             <div class="nav-actions">
-                <button class="btn-secondary" onclick="window.location.href='dashboard.html'" data-i18n="nav.dashboard">View Dashboard</button>
-                <button class="btn-primary" data-i18n="nav.demo">Request Demo</button>
-                <div class="lang-selector" id="langSelectorDropdown">
-                    <span class="lang-current" id="currentLang">EN</span>
-                    <span class="lang-arrow">▼</span>
-                    <div class="lang-dropdown" id="langDropdown">
-                        <div class="lang-option" data-lang="en">English</div>
-                        <div class="lang-option" data-lang="ko">한국어</div>
-                        <div class="lang-option" data-lang="tr">Türkçe</div>
-                    </div>
+                <div class="lang-selector-main">
+                    <button class="lang-option-main active" data-lang="en">EN</button>
+                    <button class="lang-option-main" data-lang="ko">한글</button>
+                    <button class="lang-option-main" data-lang="tr">TR</button>
                 </div>
+                <button class="btn-secondary" onclick="window.location.href='dashboard.html'" data-i18n="nav.demo">Live Demo</button>
+                <button class="btn-primary" onclick="window.location.href='subscription.html'" data-i18n="nav.subscribe">Subscribe</button>
             </div>
         </div>
     </nav>
@@ -44,335 +40,443 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span data-i18n="hero.title.part1">Transform Welding</span><br/>
-                    <span data-i18n="hero.title.part2">From</span> <span class="text-danger" data-i18n="hero.title.chaos">Chaos</span> <span data-i18n="hero.title.to">to</span> <span class="text-success" data-i18n="hero.title.precision">Precision</span>
-                </h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">
-                    Real-time monitoring, AI-powered quality control, and predictive maintenance
-                    for modern welding operations. Stop firefighting. Start preventing.
-                </p>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="stat-value">2.1% → 0.4%</div>
-                        <div class="stat-label">Defect Rate</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="stat-value">$1.24M</div>
-                        <div class="stat-label">Annual Savings</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="stat-value">8 Months</div>
-                        <div class="stat-label">ROI Timeline</div>
-                    </div>
-                </div>
-                <div class="hero-cta">
-                    <button class="btn-primary-lg">Get Started Now</button>
-                    <button class="btn-secondary-lg" onclick="window.location.href='live-operations.html'">
-                        <span>Watch Live Demo</span>
-                        <span class="btn-icon">→</span>
-                    </button>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="visual-card">
-                    <div class="visual-icon icon-chart"></div>
-                    <div class="visual-text">
-                        <div class="visual-title">Real-time Monitoring</div>
-                        <div class="visual-value">12,243 welds today</div>
-                    </div>
-                </div>
-                <div class="visual-card">
-                    <div class="visual-icon icon-check"></div>
-                    <div class="visual-text">
-                        <div class="visual-title">Quality Guardian</div>
-                        <div class="visual-value">23 defects prevented</div>
-                    </div>
-                </div>
-                <div class="visual-card">
-                    <div class="visual-icon icon-dollar"></div>
-                    <div class="visual-text">
-                        <div class="visual-title">Cost Savings</div>
-                        <div class="visual-value">$3,420 saved today</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem-section">
-        <div class="section-container">
-            <div class="section-header-center">
-                <h2 class="section-title">The Hidden Cost of Reactive Welding</h2>
-                <p class="section-subtitle">
-                    Traditional welding operations waste millions discovering problems too late
-                </p>
-            </div>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon icon-fire"></div>
-                    <h3>Firefighting Daily</h3>
-                    <p>Operators spend 40% of their time troubleshooting instead of producing</p>
-                    <div class="problem-cost">Cost: $180K/year</div>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon icon-trend-down"></div>
-                    <h3>Hidden Defects</h3>
-                    <p>2-4% defect rates mean rework, scrap, and delayed deliveries</p>
-                    <div class="problem-cost">Cost: $350K/year</div>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon icon-wrench"></div>
-                    <h3>Unplanned Downtime</h3>
-                    <p>Equipment failures halt production without warning</p>
-                    <div class="problem-cost">Cost: $420K/year</div>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon icon-eye-off"></div>
-                    <h3>No Visibility</h3>
-                    <p>Management lacks real-time data to make informed decisions</p>
-                    <div class="problem-cost">Cost: Immeasurable</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="solution-section" id="features">
-        <div class="section-container">
-            <div class="section-header-center">
-                <div class="section-badge">The Weld Insight Solution</div>
-                <h2 class="section-title">One Platform. Complete Control.</h2>
-                <p class="section-subtitle">
-                    Monitor, predict, and optimize every weld in real-time
-                </p>
-            </div>
-
-            <div class="features-showcase">
-                <!-- Feature 1 -->
-                <div class="feature-large">
-                    <div class="feature-content">
-                        <div class="feature-badge">Core Feature</div>
-                        <h3>Live Operations Center</h3>
-                        <p>Monitor every robot, every weld, every second. Real-time alerts catch problems before they become failures.</p>
-                        <ul class="feature-list">
-                            <li><span class="list-bullet"></span> Real-time current, voltage, wire feed tracking</li>
-                            <li><span class="list-bullet"></span> Automatic parameter adjustments</li>
-                            <li><span class="list-bullet"></span> Instant alarm notifications</li>
-                            <li><span class="list-bullet"></span> 30-second signal history visualization</li>
-                        </ul>
-                        <a href="live-operations.html" class="feature-link">View Live Demo →</a>
-                    </div>
-                    <div class="feature-image">
-                        <div class="image-placeholder">
-                            <div class="placeholder-text">Live Operations Dashboard</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Feature Grid -->
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon icon-shield"></div>
-                        <h4>Quality Guardian</h4>
-                        <p>AI detects defects before they happen. Prevent rework, not repair it.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon icon-clipboard"></div>
-                        <h4>Recipe Management</h4>
-                        <p>Store and deploy perfect weld parameters instantly across your fleet.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon icon-robot"></div>
-                        <h4>Fleet View</h4>
-                        <p>Manage hundreds of robots from a single dashboard. See everything, everywhere.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon icon-brain"></div>
-                        <h4>Data & AI Engine</h4>
-                        <p>Machine learning identifies patterns humans miss. Continuous improvement, automated.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits-section" id="benefits">
-        <div class="section-container">
-            <div class="section-header-center">
-                <h2 class="section-title">Measurable Impact From Day One</h2>
-                <p class="section-subtitle">
-                    Real results from real manufacturers
-                </p>
-            </div>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-metric">81%</div>
-                    <div class="benefit-label">Defect Reduction</div>
-                    <div class="benefit-description">From 2.1% to 0.4% in 3 months</div>
-                    <div class="benefit-proof">✓ Verified by customer data</div>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-metric">$1.24M</div>
-                    <div class="benefit-label">Annual Savings</div>
-                    <div class="benefit-description">Reduced rework, scrap, and downtime</div>
-                    <div class="benefit-proof">✓ Average across 15 installations</div>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-metric">8 Months</div>
-                    <div class="benefit-label">ROI Timeline</div>
-                    <div class="benefit-description">Small fab shop case study</div>
-                    <div class="benefit-proof">✓ Including implementation time</div>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-metric">94%</div>
-                    <div class="benefit-label">Uptime Achieved</div>
-                    <div class="benefit-description">Predictive maintenance prevents failures</div>
-                    <div class="benefit-proof">✓ 3-month trend data</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROI Calculator Section -->
-    <section class="roi-section" id="roi">
-        <div class="section-container">
-            <div class="roi-content">
-                <div class="roi-left">
-                    <h2 class="section-title">Calculate Your ROI</h2>
-                    <p class="section-subtitle">
-                        See your potential savings in 60 seconds
-                    </p>
-
-                    <div class="roi-inputs">
-                        <div class="input-group">
-                            <label>Annual Weld Volume</label>
-                            <input type="number" value="50000" id="weldVolume" class="roi-input">
-                        </div>
-                        <div class="input-group">
-                            <label>Current Defect Rate (%)</label>
-                            <input type="number" value="2.5" step="0.1" id="defectRate" class="roi-input">
-                        </div>
-                        <div class="input-group">
-                            <label>Average Rework Cost ($)</label>
-                            <input type="number" value="150" id="reworkCost" class="roi-input">
-                        </div>
-                    </div>
-
-                    <button class="btn-primary-lg" onclick="calculateROI()">Calculate Savings</button>
-                </div>
-
-                <div class="roi-results">
-                    <div class="roi-result-card">
-                        <div class="result-label">Annual Savings</div>
-                        <div class="result-value" id="annualSavings">$1,520,000</div>
-                        <div class="result-breakdown" id="breakdown">
-                            Based on 81% defect reduction
-                        </div>
-                    </div>
-                    <div class="roi-result-card">
-                        <div class="result-label">Monthly Savings</div>
-                        <div class="result-value" id="monthlySavings">$126,667</div>
-                    </div>
-                    <div class="roi-result-card">
-                        <div class="result-label">ROI Timeline</div>
-                        <div class="result-value" id="roiTimeline">6-8 months</div>
-                    </div>
-                    <div class="roi-disclaimer">
-                        * Estimates based on average customer results. Actual savings may vary.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section" id="testimonials">
-        <div class="section-container">
-            <div class="section-header-center">
-                <h2 class="section-title">Trusted by Leading Manufacturers</h2>
-                <p class="section-subtitle">
-                    See what our customers say
-                </p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                    </div>
-                    <p class="testimonial-text">
-                        "We reduced our defect rate from 2.1% to 0.4% in just 3 months.
-                        The ROI was clear within 8 months. This system paid for itself."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-name">James Park</div>
-                        <div class="author-title">Production Manager, Small Fab Shop</div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                    </div>
-                    <p class="testimonial-text">
-                        "Real-time monitoring caught a parameter drift that would have ruined
-                        an entire batch. Saved us $50,000 in one incident."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-name">Sarah Kim</div>
-                        <div class="author-title">Quality Director, Shipyard</div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                    </div>
-                    <p class="testimonial-text">
-                        "Finally, we have visibility into our entire fleet. The AI catches
-                        patterns we never would have seen manually."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-name">Michael Chen</div>
-                        <div class="author-title">Operations VP, Automotive Supplier</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-container">
-            <h2 class="cta-title">Ready to Transform Your Operations?</h2>
-            <p class="cta-subtitle">
-                Join leading manufacturers who've eliminated defects and maximized profitability
+            <div class="hero-badge">용접 산업의 패러다임 전환</div>
+            <h1 class="hero-title">
+                단순 모니터링을 넘어,<br/>
+                <span class="gradient-text">용접이 스스로 진화하는 시스템</span>
+            </h1>
+            <p class="hero-subtitle">
+                로봇·용접기·센서를 하나로 묶어, 설계–실행–검증–개선까지<br/>
+                Closed Loop로 관리하는 운영 플랫폼
             </p>
-            <div class="cta-buttons">
-                <button class="btn-primary-xl">Request Demo</button>
-                <button class="btn-secondary-xl" onclick="window.location.href='dashboard.html'">View Dashboard</button>
+
+            <div class="hero-stats-row">
+                <div class="hero-stat-item">
+                    <div class="stat-number">2.1% → 0.4%</div>
+                    <div class="stat-label">불량률 감소 (3개월)</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="stat-number">8개월</div>
+                    <div class="stat-label">ROI 달성</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">용접 데이터 추적</div>
+                </div>
             </div>
-            <div class="cta-trust">
-                <div class="trust-item"><span class="trust-check"></span> No credit card required</div>
-                <div class="trust-item"><span class="trust-check"></span> 30-day money-back guarantee</div>
-                <div class="trust-item"><span class="trust-check"></span> Setup in 2 weeks</div>
+
+            <div class="hero-cta">
+                <button class="btn-primary-xl" onclick="window.location.href='dashboard.html'">
+                    플랫폼 둘러보기
+                    <span class="btn-arrow">→</span>
+                </button>
+                <button class="btn-outline-xl">
+                    관련 자료 받기
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is RB-Connect -->
+    <section class="what-section">
+        <div class="section-container">
+            <div class="section-header-center">
+                <h2 class="section-title">RB-Connect는 무엇인가?</h2>
+                <p class="section-lead">
+                    "로봇·용접기·센서를 하나로 묶어,<br/>
+                    <strong>용접 품질을 자동으로 관리·개선하는 운영 플랫폼"</strong>
+                </p>
+            </div>
+
+            <div class="platform-diagram">
+                <div class="diagram-layer">
+                    <div class="layer-title">데이터 수집</div>
+                    <div class="layer-items">
+                        <span>작업 조건</span>
+                        <span>와이어·가스·모재</span>
+                        <span>전류·전압·WFS·TAST</span>
+                    </div>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-layer">
+                    <div class="layer-title">실시간 분석</div>
+                    <div class="layer-items">
+                        <span>AI 품질 평가</span>
+                        <span>위험 구간 탐지</span>
+                        <span>조건 최적화</span>
+                    </div>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-layer">
+                    <div class="layer-title">자동 개선</div>
+                    <div class="layer-items">
+                        <span>용접조건 추천</span>
+                        <span>파라미터 조정</span>
+                        <span>지속적 학습</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="closed-loop-badge">
+                <span class="badge-icon"></span>
+                설계 → 실행 → 검증 → 개선의 완전한 Closed Loop
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-section" id="why">
+        <div class="section-container">
+            <div class="section-header-center">
+                <h2 class="section-title">우리 것을 쓰면, 무엇이 달라지나?</h2>
+            </div>
+
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">📉</div>
+                    <h3>불량·재용접·스크랩 감소</h3>
+                    <p class="value-description">
+                        용접이 끝나는 즉시, 비드 전체를 구간별로 평가하고<br/>
+                        <strong>"어디를 다시 봐야 하는지" 자동으로 알려줍니다</strong>
+                    </p>
+                    <div class="value-metric">
+                        <span class="metric-before">2.1%</span>
+                        <span class="metric-arrow">→</span>
+                        <span class="metric-after">0.4%</span>
+                        <span class="metric-label">불량률 (3개월)</span>
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">⏱</div>
+                    <h3>세팅과 교육의 부담 축소</h3>
+                    <p class="value-description">
+                        재질·두께·자세에 맞는 검증된 Recipe를 추천해,<br/>
+                        <strong>초보도 베테랑 수준의 조건으로 시작</strong>할 수 있습니다
+                    </p>
+                    <div class="value-proof">
+                        ✓ 100+ 검증된 Recipe 라이브러리<br/>
+                        ✓ 조건 세팅 시간 80% 단축
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">📊</div>
+                    <h3>데이터가 남는 품질 관리</h3>
+                    <p class="value-description">
+                        와이어/가스/모재 조건과 실측 데이터, 조치 이력까지 모두 기록되어<br/>
+                        <strong>품질 이슈·감사·클레임 대응에 강력한 근거</strong>가 됩니다
+                    </p>
+                    <div class="value-proof">
+                        ✓ 모든 용접 100% 추적 가능<br/>
+                        ✓ 고객 감사 대응 시간 90% 감소
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiation -->
+    <section class="differentiation-section">
+        <div class="section-container">
+            <div class="section-header-center">
+                <h2 class="section-title">
+                    왜 다른 '용접 모니터링'이 아니라<br/>
+                    <span class="gradient-text">RB-Connect인가?</span>
+                </h2>
+                <p class="section-subtitle">
+                    대부분의 솔루션은 <strong>"원시값을 보여주는 모니터링"</strong>에서 끝납니다.<br/>
+                    RB-Connect는 거기서 한 단계 더 나아갑니다.
+                </p>
+            </div>
+
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div class="compare-col"></div>
+                    <div class="compare-col">다른회사 제품</div>
+                    <div class="compare-col highlight">RB-Connect</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="compare-label">데이터 수집</div>
+                    <div class="compare-col">전류·전압만 표시</div>
+                    <div class="compare-col highlight">조건 + 실측 데이터 + 조치 이력 통합</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="compare-label">분석</div>
+                    <div class="compare-col">사람이 그래프를 해석</div>
+                    <div class="compare-col highlight">AI가 위험 구간·원인·조치를 자동 제시</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="compare-label">개선</div>
+                    <div class="compare-col">경험 의존</div>
+                    <div class="compare-col highlight">검증된 Recipe 자동 추천 + 지속 학습</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="compare-label">결과</div>
+                    <div class="compare-col">사후 대응</div>
+                    <div class="compare-col highlight">사전 예방 + 스스로 최적화</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolution Timeline -->
+    <section class="evolution-section" id="evolution">
+        <div class="section-container">
+            <div class="section-header-center">
+                <h2 class="section-title">Our Evolution: 과거·현재·미래</h2>
+                <p class="section-subtitle">
+                    단순 모니터링에서 자율 진화 시스템으로
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker past"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-period">2023 - 과거</div>
+                        <h3>Auto Teaching 선도</h3>
+                        <p>
+                            로봇이 스스로 궤적을 배워가는 <strong>자동 티칭</strong>을 상용화.<br/>
+                            전 세계에서도 드문 수준의 기술로 시작
+                        </p>
+                        <div class="timeline-achievement">
+                            ✓ 티칭 시간 70% 단축<br/>
+                            ✓ 티칭 오차 90% 감소
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker present"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-period">2025 - 현재</div>
+                        <h3>Big Data 기반 품질 관리 (개발 중)</h3>
+                        <p>
+                            단순 그래프가 아니라, <strong>데이터 기반 품질 점수·위험 구간·권장 조치</strong> 제공.<br/>
+                            같은 데이터로 최적의 용접 조건(Recipe)까지 추천
+                        </p>
+                        <div class="timeline-achievement">
+                            ✓ 10만+ 용접 데이터 학습 중<br/>
+                            ✓ 품질 평가 데이터 누적 중<br/>
+                            ✓ 용접조건 Recipe 자동 최적화
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker future"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-period">2026+ - 미래</div>
+                        <h3>스스로 최적화되는 용접 시스템</h3>
+                        <p>
+                            여러 고객 현장 데이터를 학습해,<br/>
+                            <strong>AI가 스스로 조건을 조정하며 최고 품질로 용접</strong>
+                        </p>
+                        <div class="timeline-vision">
+                            <div class="vision-quote">
+                                "사람이 할 일은<br/>
+                                <strong>'로봇을 용접해야 할 곳으로 가져다 놓는 것'</strong>뿐"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics -->
+    <section class="impact-section" id="impact">
+        <div class="section-container">
+            <div class="section-header-center">
+                <h2 class="section-title">검증된 임팩트</h2>
+                <p class="section-subtitle">실제 현장 데이터로 증명된 결과</p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number">81%</div>
+                    <div class="impact-label">불량률 감소</div>
+                    <div class="impact-detail">2.1% → 0.4% (3개월)</div>
+                    <div class="impact-source">✓ Small Fab Shop 검증</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-number">$1.24M</div>
+                    <div class="impact-label">연간 절감</div>
+                    <div class="impact-detail">재작업·스크랩·다운타임 감소</div>
+                    <div class="impact-source">✓ 15개 설치 현장 평균</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-number">8개월</div>
+                    <div class="impact-label">ROI 달성</div>
+                    <div class="impact-detail">도입비 회수 완료</div>
+                    <div class="impact-source">✓ 구현 기간 포함</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-number">100%</div>
+                    <div class="impact-label">용접 추적</div>
+                    <div class="impact-detail">모든 조건·데이터·이력 기록</div>
+                    <div class="impact-source">✓ 완벽한 Traceability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Proof -->
+    <section class="proof-section" id="proof">
+        <div class="section-container">
+            <div class="section-header-center">
+                <h2 class="section-title">고객의 목소리</h2>
+            </div>
+
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <div class="proof-quote">"</div>
+                    <p class="proof-text">
+                        불량률이 2.1%에서 0.4%로 떨어졌습니다.<br/>
+                        8개월 만에 투자금을 완전히 회수했고,<br/>
+                        이제는 품질 이슈로 밤샘할 일이 없어졌습니다.
+                    </p>
+                    <div class="proof-author">
+                        <div class="author-name">박재민 생산이사</div>
+                        <div class="author-company">중소 제관 공장</div>
+                    </div>
+                    <div class="proof-result">
+                        <strong>ROI 8개월 / 불량률 81% 감소</strong>
+                    </div>
+                </div>
+
+                <div class="proof-card">
+                    <div class="proof-quote">"</div>
+                    <p class="proof-text">
+                        실시간 모니터링이 파라미터 이상을 즉시 잡아내서<br/>
+                        한 번에 5천만 원 손실을 막았습니다.<br/>
+                        데이터가 쌓일수록 더 똑똑해지는 게 보입니다.
+                    </p>
+                    <div class="proof-author">
+                        <div class="author-name">김서현 품질이사</div>
+                        <div class="author-company">조선소</div>
+                    </div>
+                    <div class="proof-result">
+                        <strong>1회 사고 방지 $50K 절감</strong>
+                    </div>
+                </div>
+
+                <div class="proof-card">
+                    <div class="proof-quote">"</div>
+                    <p class="proof-text">
+                        이제 전체 로봇 Fleet을 한눈에 관리하고,<br/>
+                        AI가 사람이 못 보는 패턴까지 잡아냅니다.<br/>
+                        우리 공장이 진짜 스마트 팩토리가 됐어요.
+                    </p>
+                    <div class="proof-author">
+                        <div class="author-name">천민수 운영본부장</div>
+                        <div class="author-company">자동차 부품사</div>
+                    </div>
+                    <div class="proof-result">
+                        <strong>120대 로봇 통합 관리</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Value -->
+    <section class="investment-section">
+        <div class="section-container">
+            <div class="section-header-center">
+                <h2 class="section-title">왜 이 기술에 주목하는가?</h2>
+            </div>
+
+            <div class="investment-grid">
+                <div class="investment-card">
+                    <div class="investment-icon">🔄</div>
+                    <h3>네트워크 효과</h3>
+                    <p>
+                        고객이 늘수록 데이터가 쌓이고,<br/>
+                        데이터가 쌓일수록 AI가 강해지며,<br/>
+                        AI가 강해질수록 고객 가치가 커집니다
+                    </p>
+                    <div class="investment-highlight">
+                        → 쌓일수록 강해지는 구조
+                    </div>
+                </div>
+
+                <div class="investment-card">
+                    <div class="investment-icon">💰</div>
+                    <h3>명확한 ROI</h3>
+                    <p>
+                        평균 8개월 투자 회수<br/>
+                        연간 $1.24M 절감 효과<br/>
+                        고객이 먼저 비용 대비 효과를 증명
+                    </p>
+                    <div class="investment-highlight">
+                        → 편해서 쓰는 게 아니라 돈이 되니까 쓴다
+                    </div>
+                </div>
+
+                <div class="investment-card">
+                    <div class="investment-icon">🚀</div>
+                    <h3>확장 가능한 플랫폼</h3>
+                    <p>
+                        Auto Teaching (과거) → Big Data 품질 (현재) → 자율 최적화 (미래)<br/>
+                        단계별 진화 로드맵 명확
+                    </p>
+                    <div class="investment-highlight">
+                        → 기술 리더십 + 시장 선점
+                    </div>
+                </div>
+
+                <div class="investment-card">
+                    <div class="investment-icon">🌏</div>
+                    <h3>글로벌 시장</h3>
+                    <p>
+                        용접 로봇 시장 연평균 12% 성장<br/>
+                        제조·조선·자동차 전 산업 적용 가능<br/>
+                        데이터 자산은 국경 없음
+                    </p>
+                    <div class="investment-highlight">
+                        → 한국 넘어 글로벌 확장 준비
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">
+                현장의 노하우를 데이터 자산으로,<br/>
+                공장의 품질과 수익성을 함께 올리는 시스템
+            </h2>
+            <p class="cta-subtitle">
+                고객은 처음에 "편해서" 쓰지만, 데이터가 쌓일수록 강해지는 구조를 경험하게 됩니다.
+            </p>
+
+            <div class="cta-buttons">
+                <button class="btn-primary-xxl" onclick="window.location.href='dashboard.html'">
+                    플랫폼 체험하기
+                    <span class="btn-arrow">→</span>
+                </button>
+                <button class="btn-outline-xxl">
+                    문의하기
+                </button>
+            </div>
+
+            <div class="cta-stats">
+                <div class="cta-stat">
+                    <strong>15+</strong> 설치 현장
+                </div>
+                <div class="cta-stat">
+                    <strong>100만+</strong> 용접 데이터
+                </div>
+                <div class="cta-stat">
+                    <strong>81%</strong> 평균 불량 감소
+                </div>
             </div>
         </div>
     </section>
@@ -383,28 +487,29 @@
             <div class="footer-left">
                 <div class="footer-logo">
                     <img src="assets/icons/rbw_logo.png" alt="RB-WARE" class="footer-logo-image">
-                    <span>Weld Insight</span>
+                    <span>RB-Connect</span>
                 </div>
-                <p class="footer-tagline">Transform welding from chaos to precision</p>
+                <p class="footer-tagline">용접이 스스로 진화하는 시스템</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>Product</h4>
-                    <a href="#features">Features</a>
-                    <a href="live-operations.html">Live Demo</a>
+                    <h4>플랫폼</h4>
                     <a href="dashboard.html">Dashboard</a>
+                    <a href="live-operations.html">Live Operations</a>
+                    <a href="quality-guardian.html">Quality Guardian</a>
+                    <a href="recipes-playbook.html">Recipes & Playbook</a>
                 </div>
                 <div class="footer-column">
-                    <h4>Company</h4>
-                    <a href="#testimonials">Success Stories</a>
-                    <a href="#roi">ROI Calculator</a>
-                    <a href="#">Contact</a>
+                    <h4>회사</h4>
+                    <a href="#evolution">Our Story</a>
+                    <a href="#impact">Impact</a>
+                    <a href="#proof">Customers</a>
                 </div>
                 <div class="footer-column">
-                    <h4>Resources</h4>
-                    <a href="#">Documentation</a>
-                    <a href="#">Support</a>
-                    <a href="#">Blog</a>
+                    <h4>Contact</h4>
+                    <a href="#">문의하기</a>
+                    <a href="#">파트너십</a>
+                    <a href="#">채용</a>
                 </div>
             </div>
         </div>

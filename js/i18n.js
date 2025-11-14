@@ -23,10 +23,12 @@ const translations = {
         'banner.badge': '실제 결과',
 
         // Sidebar Menu
+        'menu.home': '홈',
         'menu.dashboard': '대시보드',
         'menu.operations': '실시간 작업',
         'menu.quality': '품질 관리',
         'menu.recipes': '레시피 & 플레이북',
+        'menu.pricing': '가격',
         'menu.roi': 'ROI 시뮬레이터',
         'menu.fleet': '플릿 뷰',
         'menu.ai': '데이터 & AI 엔진',
@@ -107,10 +109,12 @@ const translations = {
         'banner.badge': 'Real Result',
 
         // Sidebar Menu
+        'menu.home': 'Home',
         'menu.dashboard': 'Dashboard',
         'menu.operations': 'Live Operations',
         'menu.quality': 'Quality Guardian',
         'menu.recipes': 'Recipes & Playbook',
+        'menu.pricing': 'Pricing',
         'menu.roi': 'ROI Simulator',
         'menu.fleet': 'Fleet View',
         'menu.ai': 'Data & AI Engine',

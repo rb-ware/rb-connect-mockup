@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구독 요금제 - RB-Connect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/subscription.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="main.html" class="logo" style="display: flex; align-items: center; gap: var(--spacing-sm); color: inherit; text-decoration: none;">
+                <img src="assets/icons/rbw_logo.png" alt="RB-WARE" class="logo-image">
+                <span>Weld Insight</span>
+            </a>
+        </div>
+        <div class="nav-center">
+            <div class="currency-toggle">
+                <button class="currency-option active" data-currency="krw">KRW (₩)</button>
+                <button class="currency-option" data-currency="usd">USD ($)</button>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="lang-selector">
+                <button class="lang-option active" data-lang="en">EN</button>
+                <button class="lang-option" data-lang="ko">한글</button>
+            </div>
+            <div class="date-picker" id="datePickerDropdown">
+                <span>📅</span>
+                <span class="date-picker-text" id="selectedDate">최근 30일</span>
+                <span class="date-picker-icon">▼</span>
+                <div class="date-dropdown" id="dateDropdown">
+                    <div class="date-option" data-value="1d">최근 1일</div>
+                    <div class="date-option" data-value="3d">최근 3일</div>
+                    <div class="date-option" data-value="5d">최근 5일</div>
+                    <div class="date-option" data-value="10d">최근 10일</div>
+                    <div class="date-option" data-value="15d">최근 15일</div>
+                    <div class="date-option" data-value="30d">최근 30일</div>
+                </div>
+            </div>
+            <div class="user-profile" id="userProfileDropdown">
+                <div class="user-avatar">
+                    <img src="assets/icons/worker.png" alt="User" class="user-avatar-img">
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-dropdown-header">
+                        <img src="assets/icons/worker.png" alt="User" class="user-dropdown-avatar">
+                        <div class="user-dropdown-info">
+                            <div class="user-dropdown-name">Can Berk Sansoy</div>
+                            <div class="user-dropdown-email">admin@rbware.com</div>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-dropdown-menu">
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">👤</span>
+                            <span>프로필</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">⚙️</span>
+                            <span>설정</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">🔔</span>
+                            <span>알림</span>
+                        </div>
+                        <div class="user-menu-item">
+                            <span class="user-menu-icon">❓</span>
+                            <span>도움말</span>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-menu-item logout">
+                        <span class="user-menu-icon">🚪</span>
+                        <span>로그아웃</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="subscription-content">
+        <!-- Back Button -->
+        <div class="content-header">
+            <a href="main.html" class="btn-back-content">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>뒤로가기</span>
+            </a>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">RB-Connect 구독 요금제</h1>
+            <p class="hero-subtitle">용접 품질 관리의 시작부터 글로벌 AI 분석까지, 귀사에 맞는 플랜을 선택하세요</p>
+        </section>
+
+        <!-- Pricing Cards -->
+        <section class="pricing-cards">
+            <!-- Free Plan -->
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <div class="plan-badge free">무료 체험</div>
+                    <h2 class="plan-name">Free</h2>
+                    <div class="plan-price">
+                        <span class="price-krw">
+                            <span class="amount">0</span>
+                            <span class="currency">원</span>
+                        </span>
+                        <span class="price-usd" style="display: none;">
+                            <span class="amount">$0</span>
+                        </span>
+                        <span class="period">/월</span>
+                    </div>
+                    <p class="plan-description">체험, 소규모 사업장</p>
+                </div>
+                <div class="plan-features">
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">로봇·용접기 실시간 모니터링 (1대)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">Arc On/Off 기본 알람</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">장비 상태 로그 저장 (7일)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">레시피 저장 (기본)</span>
+                    </div>
+                    <div class="feature-item excluded">
+                        <span class="feature-icon">✗</span>
+                        <span class="feature-text">클라우드 업로드</span>
+                    </div>
+                    <div class="feature-item excluded">
+                        <span class="feature-icon">✗</span>
+                        <span class="feature-text">TAST 데이터</span>
+                    </div>
+                    <div class="feature-item excluded">
+                        <span class="feature-icon">✗</span>
+                        <span class="feature-text">SPC 분석</span>
+                    </div>
+                    <div class="feature-item excluded">
+                        <span class="feature-icon">✗</span>
+                        <span class="feature-text">원격 알람 푸시</span>
+                    </div>
+                    <div class="feature-item excluded">
+                        <span class="feature-icon">✗</span>
+                        <span class="feature-text">레시피 추천 AI</span>
+                    </div>
+                </div>
+                <button class="btn-plan">무료 시작하기</button>
+            </div>
+
+            <!-- Pro Plan -->
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <div class="plan-badge pro">인기</div>
+                    <h2 class="plan-name">Pro</h2>
+                    <div class="plan-price">
+                        <span class="price-krw">
+                            <span class="amount">59,000</span>
+                            <span class="currency">원</span>
+                        </span>
+                        <span class="price-usd" style="display: none;">
+                            <span class="amount">$49</span>
+                        </span>
+                        <span class="period">/월</span>
+                    </div>
+                    <p class="plan-description">1~5로봇 소규모 공장</p>
+                </div>
+                <div class="plan-features">
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">로봇·용접기 실시간 모니터링 (3대)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">Arc On/Off 알람</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">TAST 실시간 그래프 (기본 필터)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">로그 저장 (30일)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">프로젝트별 용접 기록</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">레시피 저장/불러오기</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">기본 레시피 자동 추천</span>
+                    </div>
+                    <div class="feature-item excluded">
+                        <span class="feature-icon">✗</span>
+                        <span class="feature-text">PDF 보고서</span>
+                    </div>
+                    <div class="feature-item excluded">
+                        <span class="feature-icon">✗</span>
+                        <span class="feature-text">SPC 분석 도구</span>
+                    </div>
+                    <div class="feature-item excluded">
+                        <span class="feature-icon">✗</span>
+                        <span class="feature-text">글로벌 베스트 레시피 AI</span>
+                    </div>
+                </div>
+                <button class="btn-plan btn-plan-primary">Pro 시작하기</button>
+            </div>
+
+            <!-- Business Plan -->
+            <div class="pricing-card recommended">
+                <div class="recommended-badge">최고 인기</div>
+                <div class="plan-header">
+                    <div class="plan-badge business">추천</div>
+                    <h2 class="plan-name">Business</h2>
+                    <div class="plan-price">
+                        <span class="price-krw">
+                            <span class="amount">119,000</span>
+                            <span class="currency">원</span>
+                        </span>
+                        <span class="price-usd" style="display: none;">
+                            <span class="amount">$99</span>
+                        </span>
+                        <span class="period">/월</span>
+                    </div>
+                    <p class="plan-description">강소기업·벤더사(조선/자동차 1·2차)</p>
+                </div>
+                <div class="plan-features">
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">로봇·용접기 실시간 모니터링 (10대)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">고급 알람 (전류/전압/TAST 범위)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">TAST 고급 분석 (평균/편차/이상치)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">데이터 저장 (6개월)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">SPC 품질 관리</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">성능분석 대시보드 (Arc Time / Utilization)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">프로젝트·파트·작업자별 품질 비교</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">레시피 관리 + 사내 Top 레시피 랭킹</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">PDF 자동 보고서</span>
+                    </div>
+                    <div class="feature-item excluded">
+                        <span class="feature-icon">✗</span>
+                        <span class="feature-text">글로벌 익명 레시피 AI 추천</span>
+                    </div>
+                </div>
+                <button class="btn-plan btn-plan-primary">Business 시작하기</button>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <div class="plan-badge enterprise">엔터프라이즈</div>
+                    <h2 class="plan-name">Enterprise</h2>
+                    <div class="plan-price">
+                        <span class="price-krw">
+                            <span class="amount">349,000</span>
+                            <span class="currency">원</span>
+                        </span>
+                        <span class="price-usd" style="display: none;">
+                            <span class="amount">$299</span>
+                        </span>
+                        <span class="period">/월</span>
+                    </div>
+                    <p class="plan-description">대기업·품질팀·멀티라인 운영</p>
+                </div>
+                <div class="plan-features">
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">로봇/용접기 수 무제한</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">고급 알람 + Slack/Teams 연동</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">TAST 고급 모델 기반 Z 추정</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">레시피 빅데이터 AI 추천 (Global)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">데이터 저장 무제한</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">BI 분석 대시보드</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">API 제공 (ERP/MES 연동)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">SSO, RBAC (권한관리)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">전용 고객 성공 매니저</span>
+                    </div>
+                </div>
+                <button class="btn-plan btn-plan-primary">Enterprise 문의하기</button>
+            </div>
+
+            <!-- Enterprise+ Plan -->
+            <div class="pricing-card enterprise-plus">
+                <div class="plan-header">
+                    <div class="plan-badge enterprise-plus">온프레미스</div>
+                    <h2 class="plan-name">Enterprise+</h2>
+                    <div class="plan-price">
+                        <span class="price-krw">
+                            <span class="amount">4,900,000</span>
+                            <span class="currency">원</span>
+                        </span>
+                        <span class="price-usd" style="display: none;">
+                            <span class="amount">$3,500</span>
+                        </span>
+                        <span class="period">초기 구축</span>
+                    </div>
+                    <p class="plan-description">+ 연 15% 유지비 | 클라우드 불가 기업</p>
+                </div>
+                <div class="plan-features">
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">사내 서버 구축 (On-Premise)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">인터넷 없이 동작</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">사내 DB 직접 보관</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">보안감사 (ISO/IEC) 대응</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">커스텀 기능 개발 (옵션)</span>
+                    </div>
+                    <div class="feature-item included">
+                        <span class="feature-icon">✓</span>
+                        <span class="feature-text">Enterprise 플랜 전체 기능 포함</span>
+                    </div>
+                </div>
+                <button class="btn-plan">Enterprise+ 문의하기</button>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="section-title">자주 묻는 질문</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">무료 체험 기간이 있나요?</h3>
+                    <p class="faq-answer">Free 플랜은 영구 무료로 사용 가능하며, 유료 플랜은 14일 무료 체험을 제공합니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">플랜 변경이 가능한가요?</h3>
+                    <p class="faq-answer">언제든지 플랜 업그레이드 또는 다운그레이드가 가능하며, 일할 계산으로 정산됩니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">데이터는 안전하게 보관되나요?</h3>
+                    <p class="faq-answer">AWS 클라우드 기반으로 안전하게 암호화되어 저장되며, Enterprise+ 플랜은 자체 서버에 보관 가능합니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">계약 기간은 어떻게 되나요?</h3>
+                    <p class="faq-answer">월 단위 구독이며, 연 단위 결제 시 최대 20% 할인 혜택이 제공됩니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">아직 고민 중이신가요?</h2>
+            <p class="cta-subtitle">전문가와 상담하여 귀사에 최적화된 플랜을 찾아보세요</p>
+            <div class="cta-buttons">
+                <button class="btn-cta-primary">영업팀 문의하기</button>
+                <button class="btn-cta-secondary">데모 예약하기</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2025 RB-WARE. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">고객지원</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/subscription.js"></script>
+</body>
+</html>
