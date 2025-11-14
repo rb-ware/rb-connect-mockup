@@ -14,6 +14,11 @@ if (datePickerDropdown && dateDropdown) {
     document.querySelectorAll('.date-option').forEach(option => {
         option.addEventListener('click', (e) => {
             e.stopPropagation();
+            // Copy the data-i18n key from the clicked option to the selected date display
+            const i18nKey = option.getAttribute('data-i18n');
+            if (i18nKey) {
+                selectedDate.setAttribute('data-i18n', i18nKey);
+            }
             selectedDate.textContent = option.textContent;
             dateDropdown.classList.remove('active');
         });
@@ -61,15 +66,7 @@ currencyOptions.forEach(option => {
     });
 });
 
-// Language Toggle (Simplified version)
-const langOptions = document.querySelectorAll('.lang-option');
-
-langOptions.forEach(option => {
-    option.addEventListener('click', () => {
-        langOptions.forEach(opt => opt.classList.remove('active'));
-        option.classList.add('active');
-    });
-});
+// Language Toggle is handled in subscription-i18n.js
 
 // Plan Button Click Handlers
 const planButtons = document.querySelectorAll('.btn-plan');

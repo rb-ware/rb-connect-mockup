@@ -91,6 +91,36 @@ body.landing-page {
     gap: 1rem;
 }
 
+/* Language Selector for Main Landing */
+.lang-selector-main {
+    display: flex;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.lang-option-main {
+    padding: 6px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.lang-option-main:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.lang-option-main.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+}
+
 /* Buttons */
 .btn-primary, .btn-secondary {
     padding: 0.625rem 1.25rem;
